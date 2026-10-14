@@ -1,0 +1,48 @@
+PASS ending sea actions 21
+PASS ending seaTogether actions 23
+PASS ending green actions 11
+PASS ending blue actions 13
+PASS ending drain actions 18
+PASS ending drainTogether actions 20
+PASS ending restore actions 17
+PASS ending release actions 20
+PASS ending silent actions 12
+PASS ending listener actions 8
+PASS ending keeper actions 17
+PASS ending collected actions 1
+PASS ending named actions 2
+PASS ending loop actions 72
+PASS ending reef actions 7
+PASS ending remain actions 3
+PASS ending borrowed actions 13
+PASS ending exhausted actions 2
+PASS ending rail actions 16
+PASS ending mirror actions 12
+PASS ending forest actions 14
+PASS ending fracture actions 12
+PASS all scene links 60
+PASS map graph symmetry 13
+PASS unclear input does not consume resources
+PASS terminal loss removes new digital evidence
+PASS corruption blocks route until verified
+PASS companion support
+PASS filter mitigation
+PASS map travel distance costs actions
+PASS replay role and new choices
+ALL CHECKS PASSED
+PASS companion injury loss
+PASS state/map/settings dynamic UI IDs
+PASS forced intro acknowledgement is free
+PASS mandatory authentication
+PASS detected lie separate from erosion
+PASS powered-off successful escape hidden ending
+PASS power-off setting connected
+PASS player injury/transformation image selection
+PASS companion transformation
+PASS complete sync crisis ending
+PASS earned survival ending
+PASS transformed escape ending
+PASS illustrated inventory
+PASS action preserves viewport position
+PASS new scene and ending survive reload
+PASS v4 probability, conversation, intro and perception endings

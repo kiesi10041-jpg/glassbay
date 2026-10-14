@@ -1,0 +1,64 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const classes=new Set();function el(){return {style:{},children:[],classList:{add(...xs){xs.forEach(x=>classes.add(x))},remove(...xs){xs.forEach(x=>classes.delete(x))},toggle(x,b){if(b)classes.add(x);else classes.delete(x)}},append(...x){this.children.push(...x)},replaceChildren(){this.children=[]},querySelector(){return el()},setAttribute(){},addEventListener(){},insertAdjacentHTML(pos,html){registerHtml(html)},setPointerCapture(){},showModal(){this.open=true},close(){this.open=false},scrollIntoView(){},value:'',set innerHTML(v){this._html=v;registerHtml(v)},get innerHTML(){return this._html||''},disabled:false}}
+const els={},storage={};const staticIds=[...fs.readFileSync('index.html','utf8').matchAll(/id="([^"]+)"/g)].map(m=>m[1]);staticIds.forEach(id=>els[id]=el());function registerHtml(v){for(const m of String(v).matchAll(/id="([^"]+)"/g))els[m[1]]??=el()}const ctx={document:{getElementById:id=>els[id]||null,createElement:el,createTextNode:s=>s,body:el()},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},window:{matchMedia:()=>({matches:true})},innerWidth:1200,scrollTo(){},setTimeout:f=>{f();return 1},clearTimeout(){},console};vm.createContext(ctx);for(const file of ['story.js','expansion.js','late-data.js','concept-data.js','game.js','explore.js','terminal-events.js','immersion.js','narrative.js'])vm.runInContext(fs.readFileSync(file,'utf8'),ctx,{filename:file});vm.runInContext('globalThis.test={fresh,SCENES,ENDINGS,WORLD,C,act,ask,lock,answerNew,classifyNew,has,group,render,canAsk,discardTerminal,hurt,openTerminal,closeTerminal,normalize,pathTo,travel,talkAlly,useSupply,verifyRecords,possibleEncounter,restart,showState,showMap,settings,resolveIncoming,pendingRequired,processMutation,avatar,inventory,get:()=>state,set:s=>{state=s;normalize()},cycle:n=>meta.cycle=n};',ctx);const t=ctx.test,observed=new Set();
+function reset(cycle=1){t.cycle(cycle);t.set(t.fresh())}function choose(n){if(t.pendingRequired())t.resolveIncoming(t.pendingRequired(),'confirm');const s=t.get();assert(!s.ending,'Ended '+s.ending);const o=t.SCENES[s.scene].choices[n];assert(o,'Missing '+s.scene+':'+n);assert(!t.lock(o),'Locked '+s.scene+':'+o.label+' '+t.lock(o));t.act(o)}function go(scene,n){assert.equal(t.get().scene,scene);choose(n)}function finish(id){assert.equal(t.get().ending,id);observed.add(id);console.log('PASS ending',id,'actions',t.get().turn)}function boot(){reset();go('wake',0);go('ward',0)}function move(scene){t.act(t.C('이동',scene))}function power(){move('substation');go('substation',0);go('powerBypass',0);go('powerFinish',0)}function battery(){move('clinic');go('clinic',0)}function shipSetup(){battery();power();move('pier');go('pier',0);go('pierReady',0);go('fuel',0);move('lighthouse');go('lighthouse',0);go('beaconVerified',0)}function paperwork(){move('board');go('board',0);go('office',2);move('archive');go('archive',0);go('archiveIndex',1)}function relaySetup(){move('relay');go('relay',0);go('relayWork',1)}function identity(){go('relayWork',2);go('identity',0)}
+boot();shipSetup();go('pierReady',1);go('launch',0);finish('sea');
+boot();go('square',0);go('seojin',0);shipSetup();go('pierReady',1);go('launch',0);finish('seaTogether');
+boot();paperwork();move('gate');go('gate',0);finish('green');
+boot();go('square',0);go('seojin',0);paperwork();move('gate');go('gate',1);finish('blue');
+boot();battery();power();move('reservoir');go('reservoir',0);go('pumpPower',0);go('pumpFinish',0);move('relay');go('relay',2);go('drainEntry',0);finish('drain');
+boot();go('square',0);go('seojin',0);battery();power();move('reservoir');go('reservoir',0);go('pumpPower',0);go('pumpFinish',0);move('relay');go('relay',2);go('drainEntry',0);finish('drainTogether');
+boot();battery();power();relaySetup();identity();go('relayWork',4);go('broadcast',0);finish('restore');
+boot();go('square',0);go('seojin',0);move('board');go('board',0);go('office',2);battery();power();relaySetup();go('relayWork',4);go('broadcast',1);finish('release');
+boot();move('board');go('board',1);move('pier');go('pier',0);move('relay');go('relay',0);go('relayWork',3);go('drainEntry',1);finish('silent');
+boot();relaySetup();t.ask('원본 방송과 현재 안내가 모순되지 않아?');assert(t.has('echoReady'));t.act(t.C('기록 정정','end:listener',{physical:'hearing',maxErosion:31,online:true}));finish('listener');
+boot();battery();power();relaySetup();identity();go('relayWork',4);go('broadcast',2);finish('keeper');
+reset();choose(1);finish('collected');reset();choose(0);choose(2);finish('named');boot();while(!t.get().ending)move('square');finish('loop');boot();move('pier');go('pier',0);go('pierReady',0);go('fuel',1);finish('reef');boot();go('square',5);finish('remain');
+boot();relaySetup();while(t.get().scene!=='attack')t.ask('위치 노출을 줄이려면?');go('attack',0);t.get().cooldown=0;t.get().erosion=85;t.get().heat=59;t.ask('침식과 위치 노출의 차이는?');assert.equal(t.get().scene,'attack3');go('attack3',1);finish('borrowed');
+reset();t.get().hp=5;go('wake',2);assert.equal(t.get().scene,'lastChance');go('lastChance',2);finish('exhausted');
+boot();power();move('station');go('station',0);go('railWorkshop',0);move('ticketOffice');go('ticketOffice',0);go('railReady',0);finish('rail');
+boot();move('pier');go('pier',0);move('lighthouse');go('lighthouse',1);go('lighthouse',0);go('beaconVerified',0);move('lighthouse');go('lighthouse',0);go('beaconVerified',1);finish('mirror');
+reset(2);go('wake',0);go('ward',0);move('pier');go('pier',0);move('archiveTape');go('archiveTape',0);go('archive',2);go('archiveTape',1);move('forest');go('forest',0);go('observatory',0);finish('forest');
+boot();go('square',0);go('seojin',0);paperwork();t.get().companions['서진'].trust=10;move('gate');go('gate',1);finish('fracture');assert.equal(observed.size,22);
+for(const [id,s]of Object.entries(t.SCENES))for(const o of s.choices){if(o.to.startsWith('end:'))assert(t.ENDINGS[o.to.slice(4)]);else if(!['resume','resumeDamage','dynamic:sea','dynamic:drain'].includes(o.to))assert(t.SCENES[o.to],id+' => '+o.to)}console.log('PASS all scene links',Object.keys(t.SCENES).length);
+for(const [id,w]of Object.entries(t.WORLD))for(const v of w.links){assert(t.WORLD[v].links.includes(id),'One-way '+id+':'+v)}console.log('PASS map graph symmetry',Object.keys(t.WORLD).length);
+boot();const before=[t.get().turn,t.get().questions,t.get().erosion];t.ask('아무의미없는문장');assert.deepEqual([t.get().turn,t.get().questions,t.get().erosion],before);console.log('PASS unclear input does not consume resources');
+boot();t.get().items.push('rules','tide','beacon','map','permit','food','power');t.discardTerminal();for(const k of ['rules','tide','beacon','map','permit'])assert(!t.has(k));assert(t.has('food')&&t.has('power'));console.log('PASS terminal loss removes new digital evidence');
+boot();t.get().items.push('tide');t.get().corrupt.push('tide');assert(t.lock(t.C('航路','lighthouse',{need:['tide']})).includes('왜곡'));t.verifyRecords(['tide']);assert(!t.lock(t.C('航路','lighthouse',{need:['tide']})));console.log('PASS corruption blocks route until verified');
+boot();go('square',0);go('seojin',0);t.get().companions['서진'].fear=90;const fear=t.get().companions['서진'].fear;t.talkAlly('서진');assert(t.get().companions['서진'].fear<fear);console.log('PASS companion support');
+boot();t.get().items.push('filter');t.get().erosion=50;t.get().heat=50;t.useSupply('filter');assert(t.get().erosion===38&&t.get().heat<50&&!t.has('filter'));console.log('PASS filter mitigation');
+boot();t.get().turn=10;t.travel('lighthouse');assert(t.get().turn>11);assert.equal(t.get().scene,'lighthouse');console.log('PASS map travel distance costs actions');
+boot();t.act(t.C('终','end:remain'));t.restart();assert.equal(t.get().role,'기록 감식');t.resolveIncoming('arrival','confirm');assert(!t.lock(t.C('前','archive',{cycle:2})));console.log('PASS replay role and new choices');
+console.log('ALL CHECKS PASSED');
+
+boot();go("square",0);go("seojin",0);t.get().companions["서진"].hp=10;t.act(t.C("衝擊","square",{damage:25}));assert(!t.get().allies.includes("서진"));console.log("PASS companion injury loss");
+
+boot();go("square",0);go("seojin",0);t.showState();assert(els["heal_서진"]);t.showMap();assert(els["node_forest"]);t.settings();assert(els["effectsToggle"]);console.log("PASS state/map/settings dynamic UI IDs");
+
+reset();t.render();assert.equal(t.pendingRequired(),'arrival');const initial=[t.get().turn,t.get().erosion,t.get().questions];t.resolveIncoming('arrival','confirm');assert.deepEqual([t.get().turn,t.get().erosion,t.get().questions],initial);assert(!t.pendingRequired());console.log('PASS forced intro acknowledgement is free');
+boot();move('board');assert.equal(t.pendingRequired(),'auth');const clock=t.get().turn;t.resolveIncoming('auth','confirm');assert.equal(t.get().turn,clock);console.log('PASS mandatory authentication');
+boot();t.get().items.push('tide');t.get().inbox=['coast'];t.get().eventVariants={coast:{false:true,probability:50,message:'붉은 불빛이 외항입니다.'}};const e=t.get().erosion;t.resolveIncoming('coast','verify');assert(t.get().lieSuspicion===22&&t.get().liesCaught===1&&t.get().erosion===Math.max(0,e-3));console.log('PASS detected lie separate from erosion');
+boot();t.get().flags.push('poweredOff');t.act(t.C('대피','end:remain'));assert.equal(t.get().ending,'remain');t.get().ending=null;t.act(t.C('탈출','end:green'));assert.equal(t.get().ending,'darkReturn');console.log('PASS powered-off successful escape hidden ending');
+boot();t.settings();assert(els.powerOffBtn);console.log('PASS power-off setting connected');
+
+boot();t.get().injuries.push('eyes');assert(t.avatar().includes('_injured'));t.get().flags.push('mutated');assert(t.avatar().includes('-aberrant'));console.log('PASS player injury/transformation image selection');
+boot();go('square',0);go('seojin',0);t.get().companions['서진'].sync=100;t.processMutation();assert(t.get().companions['서진'].changed);assert(t.avatar('서진').includes('-aberrant'));console.log('PASS companion transformation');
+boot();t.get().playerSync=100;t.processMutation();assert.equal(t.get().scene,'syncCrisis');assert(!t.canAsk());go('syncCrisis',2);assert.equal(t.get().ending,'signalBody');console.log('PASS complete sync crisis ending');
+boot();t.get().liesCaught=2;t.get().verified.push('tide');t.act(t.C('귀환','end:sea'));assert.equal(t.get().ending,'earnedDawn');console.log('PASS earned survival ending');
+boot();t.get().flags.push('mutated');t.act(t.C('변이탈출','end:sea'));assert.equal(t.get().ending,'changedReturn');console.log('PASS transformed escape ending');
+boot();t.inventory();assert(els['inv_wrist']);console.log('PASS illustrated inventory');
+
+boot();ctx.window.scrollY=540;ctx.window.scrollX=0;ctx.window.scrollTo=o=>{ctx.window.scrollY=o.top};t.act(t.C('같은 위치','square'));assert.equal(ctx.window.scrollY,540);console.log('PASS action preserves viewport position');
+// Browser-like separate-script load against a saved new ending.
+boot();t.get().playerSync=100;t.processMutation();go('syncCrisis',2);const copy=JSON.parse(storage['glass-bay-v3']);assert.equal(copy.state.ending,'signalBody');
+const reloadContext={...ctx,localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v}};vm.createContext(reloadContext);for(const file of ['story.js','expansion.js','late-data.js','concept-data.js','game.js','explore.js','terminal-events.js','immersion.js','narrative.js'])vm.runInContext(fs.readFileSync(file,'utf8'),reloadContext,{filename:file});assert.equal(vm.runInContext('state.ending',reloadContext),'signalBody');console.log('PASS new scene and ending survive reload');
+
+vm.runInContext(`
+state=fresh();normalize();normalizeStory();finishIntro();if(localStorage.getItem('glass-bay-intro-v4')!=='seen')throw Error('intro persistence');
+for(let i=0;i<=100;i++){state.erosion=i;const p=updateProbability();if(p<1||p>99)throw Error('probability cap')}
+state.erosion=50;state.seed=123;let lies=0;for(let i=0;i<1000;i++){answerNew('전력 순서','power');lies+=state.lastReplyFalse?1:0}if(lies<300||lies>600)throw Error('probability distribution '+lies);
+state=fresh();normalize();normalizeStory();state.allies=['서진'];normalize();state.companions.서진.sync=0;state.erosion=50;state.scene='archive';processPerception();if(state.scene!=='perceptionGlass'||!state.falseVision)throw Error('perception');
+state.inbox=[];act(SCENES.perceptionGlass.choices[1]);if(!has('perspectiveRestored')||state.falseVision)throw Error('recovery');end('sea');if(state.ending!=='trueSight')throw Error('true sight ending');
+state=fresh();normalize();normalizeStory();state.falseVision=true;end('sea');if(state.ending!=='falseSight')throw Error('false sight ending');
+state=fresh();normalize();normalizeStory();state.inbox=['arrival'];resolveIncoming('arrival','confirm');act(SCENES.wake.choices[0]);if(!state.dialogue.some(d=>d.speaker==='나'))throw Error('player dialogue');
+`,ctx);console.log('PASS v4 probability, conversation, intro and perception endings');
