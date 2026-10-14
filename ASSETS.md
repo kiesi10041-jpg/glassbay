@@ -36,3 +36,22 @@
 ## 음향
 
 assets/audio/glass-bay-isolation.mp3는 이 프로젝트용으로 합성한 배경음악입니다. 발소리·충격·획득음은 Web Audio로 합성합니다. 외부 음원 링크나 API를 사용하지 않습니다.
+
+## v5.4 괴물 전경과 선택지 손
+제작: 내장 imagegen. 원본 PNG를 그대로 복사했으며 alpha 채널을 보존했습니다. 각 개체는 배경과 별도 레이어로 사용합니다.
+공통 프롬프트: transparent foreground sprite for Korean coastal psychological survival horror; detailed cinematic painted realism; desaturated blue gray; cold highlights; isolated subject; no environment, text, watermark, blood or gore.
+
+### assets/monsters/school.png
+A single original horror creature called the Bell Keeper: towering thin humanoid in a drenched old gray school maintenance vest, elongated forearms with six jointed dark fingers, small head angled downward, rusty speaker grille instead of lower face, pale wet skin. Full body looming forward, arms reaching down toward viewer.
+
+### assets/monsters/forest.png
+A single original horror creature called the Borrowed Voice: a twisted silhouette assembled from black pine roots and a torn yellow raincoat, hollow face shaped like an empty hood, asymmetrical branches bending like arms, wet boots suspended above ground, leaning sideways whispering. Full body distinct sharp branching silhouette.
+
+### assets/monsters/market.png
+A single original horror creature called the Blind Seam: broad hanging figure in layered worn charcoal tarpaulin and stitched gray rain ponchos, no head visible except a vertical black slit between folded fabric, unnaturally many narrow arms emerging from seams, long dangling fingers, leaning toward viewer. Entire body distinct bulky folded fabric silhouette.
+
+### assets/monsters/water.png
+A single original horror creature called the Low Tide: crawling amphibious humanoid with a wide flattened head and opaque glasslike eyes, pale bluegray waterlogged skin, long webbed hands and asymmetrical limbs, trailing ropes and seaweed, emerging forward on all fours. Entire body, low horizontal silhouette.
+
+### assets/monsters/hand.png
+One isolated monstrous left forearm and hand reaching from the lower right corner toward the upper left, extremely long jointed dark fingers spread across the frame, wet cracked charcoal skin, six crooked fingers, severe foreshortening, seen from above as though pressing onto glass. No body or head, only arm and hand. Wide composition, fingers extend left across a broad horizontal area.

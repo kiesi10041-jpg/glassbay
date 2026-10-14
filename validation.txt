@@ -1,5 +1,5 @@
-v5.3 validation 2026-10-14
-Syntax checks: data.js, game.js, ui.js, verify.cjs passed.
+v5.4 validation 2026-10-15 KST
+Syntax checks passed.
 PASS real map traversal sea route / epilogue
 PASS school route
 PASS drain route
@@ -46,6 +46,23 @@ PASS early exploration can reach power station and forest without prescribed clu
 PASS PC text-pane scroll preserved independently; new location resets reader (mock DOM)
 PASS failed escape explains its local cause and related evidence
 PASS secondary NPC testimony is attributed and stored as dialogue
+PASS four foreground creatures, blocked choices and observed escape routes
+PASS four monster-specific death endings through staged choices
+PASS caught player survives by losing an actual inventory item and keeps injury
+PASS empty-handed escape pays physical injury rather than granting a free item sacrifice
+PASS ally rescue leaves real damage and an injured portrait
+PASS arm injury restricts struggle while another survival response remains
+PASS erosion hand blocks engine and UI consistently; grounding restores choice
+PASS terminal shutdown immediately removes screen-grip interference
+PASS ECHO danger question uses current creature clues and leaves confrontation unresolved
+PASS first market creature appears reliably; revisit cooldown avoids repeated ambush
+PASS new dialogue animates once; repeated description is optional and result remains visible
+PASS mobile reader scroll independent of visible stage (mock DOM)
+PASS new monster assets and 32 unique ending IDs
+PASS ECHO questions sit by the input and hide with the phone
+PASS reload preserves caught phase and survival cost
+PASS prior 28-ending completion keeps unlocked truth after expansion
+PASS attacking mimic and synchronized player have visible foreground mutation images
 ALL CHECKS PASSED
 
-Limit: mocked DOM. No physical mobile or real desktop browser layout, touch, audio or measured session-time verification. Not all endings were collected through full campaign play.
+Limit: mocked DOM, not a real browser. No measured touch, audio, exact responsive layout or full-session playtime verification.
