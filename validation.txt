@@ -1,48 +1,31 @@
-PASS ending sea actions 21
-PASS ending seaTogether actions 23
-PASS ending green actions 11
-PASS ending blue actions 13
-PASS ending drain actions 18
-PASS ending drainTogether actions 20
-PASS ending restore actions 17
-PASS ending release actions 20
-PASS ending silent actions 12
-PASS ending listener actions 8
-PASS ending keeper actions 17
-PASS ending collected actions 1
-PASS ending named actions 2
-PASS ending loop actions 72
-PASS ending reef actions 7
-PASS ending remain actions 3
-PASS ending borrowed actions 13
-PASS ending exhausted actions 2
-PASS ending rail actions 16
-PASS ending mirror actions 12
-PASS ending forest actions 14
-PASS ending fracture actions 12
-PASS all scene links 60
-PASS map graph symmetry 13
-PASS unclear input does not consume resources
-PASS terminal loss removes new digital evidence
-PASS corruption blocks route until verified
-PASS companion support
-PASS filter mitigation
-PASS map travel distance costs actions
-PASS replay role and new choices
+PASS real map traversal sea route / epilogue
+PASS school route
+PASS drain route
+PASS rail route
+PASS identity / Haewon / human operator / offline escape
+PASS pharmacy treatment removes visual effects and never traps exit
+PASS completed choices hidden, unmet conditions remain
+PASS one movement graph / menu navigation free
+PASS clue-led questions / unknown input free / reply persists
+PASS high lie probability still allows truth
+PASS rejection cannot reroll by repeated click
+PASS departed ally moves, reunion identity persistent
+PASS NPC transformation / attack / survivable injury
+PASS player-only distortion and independent evidence recovery
+PASS terminal discard deletes digital records, keeps physical evidence
+PASS replay evidence, new room content and full truth unlock
+PASS global action cap removed
+PASS all 20 escape ending conditions
+PASS all 8 non-escape endings through actual choices
+PASS viewport and panel restore calls (mock DOM, not mobile browser)
+PASS event and identity save serialization
+PASS distinct location threat observation and second decision
+PASS authentic companion remains findable after mimic discrepancy
+PASS all NPC injury and mutation asset selectors
+PASS companion casualties retain record and leave party
+PASS companion treatment uses explicitly chosen supply
+PASS pharmacy regression across 20 saved RNG states
+PASS asset references and graph symmetry
+PASS third-run responsibility clue and question
+PASS separate-script reload preserves event phase, RNG and mimic identity
 ALL CHECKS PASSED
-PASS companion injury loss
-PASS state/map/settings dynamic UI IDs
-PASS forced intro acknowledgement is free
-PASS mandatory authentication
-PASS detected lie separate from erosion
-PASS powered-off successful escape hidden ending
-PASS power-off setting connected
-PASS player injury/transformation image selection
-PASS companion transformation
-PASS complete sync crisis ending
-PASS earned survival ending
-PASS transformed escape ending
-PASS illustrated inventory
-PASS action preserves viewport position
-PASS new scene and ending survive reload
-PASS v4 probability, conversation, intro and perception endings

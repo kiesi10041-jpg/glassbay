@@ -1,14 +1,38 @@
-# 이미지 생성 기록
-환경 12개와 인물 3개는 내장 이미지 생성 도구로 제작한 게임용 이미지입니다.
-기존: ward, board, pier, relay, town.
-신규 환경: station(폐역), reservoir(저류조), lighthouse(등대), archive(보관소), market(시장), forest(해송 숲), substation(변전소).
-신규 인물: player(통신 기사 전신), seojin(서진), doyun(도윤).
-공통 환경 프롬프트: 한국 해안 마을의 심리 공포 게임, cinematic painted realism, charcoal blue grey / muted jade / amber, realistic materials, eye level, no people, no readable text, no logos, no UI.
-인물은 같은 화풍의 투명 배경 자산으로 생성했습니다. 부상 위치와 지도 연결은 정확한 표시를 위해 코드로 그립니다.
+# 이미지·음향 제작 기록
 
-## v3.2 추가
-내장 이미지 편집 도구로 player/seojin/doyun의 injured/changed 투명 배경 변형 6개를 제작했습니다. 원본 정체·의상·구도를 유지하고 붕대·멍·피로 또는 비현실적 신호 무늬를 추가했습니다.
-assets/items의 23개 SVG 아이콘은 물품을 정확히 구분하도록 직접 그렸습니다.
-assets/audio/glass-bay-isolation.mp3는 NumPy 파형 합성으로 만든 64초 원본 배경음악입니다.
+내장 이미지 생성 기능으로 v5용 이미지 16개를 생성했습니다. 기존 유리만 이미지와 직접 작성한 SVG 물품 아이콘, 이 프로젝트용 합성 배경음악을 재사용합니다. CLI/API 이미지 생성은 사용하지 않았습니다.
 
-v4 신규 생성 이미지: map-detail.jpg(마을 지도), skeptic.png(나래), devotee.png(수호), lost-survivor.png(변이 승객), player-aberrant.png, seojin-aberrant.png, doyun-aberrant.png(새 자세의 변이 이미지). 지도 이동 노드·경로는 코드로 그려 클릭 가능하게 유지합니다. 그래픽 생성 후 크기 최적화만 수행했습니다.
+새 파일은 assets/ 안에 들어 있습니다. 원본은 보존하고 게임용 파일의 해상도·압축만 최적화했습니다.
+
+## v5 새 장면·인물
+
+- hall.jpg: Wide interior of small Korean coastal village community hall used as emergency operations room, plastic chairs, evacuation cots, work logs on wall, rain wet entry, desk lamp, no readable text.
+
+- clinic.jpg: Wide abandoned small Korean seaside pharmacy treatment room, medicine packets, used gauze without gore, examination cot, wet footprints, frosted glass with faint silhouette, no text.
+
+- haewon.png: Transparent single waist-up portrait Korean young adult woman age20, short bob hair, faded yellow raincoat, tired alert, folded prescription envelope in hand, normal human, one pose.
+
+- operator.png: Transparent single waist-up portrait Korean woman age38, tied dark hair, charcoal utility vest grey shirt, worn headphones around neck, wrist bandage, green handheld radio, tired kind expression, one pose.
+
+- school-threat.jpg: Wide empty Korean school corridor night, far end tall asymmetric human-like figure in damp evacuation vest, face obscured by strips of reflective foil, elongated hand near speaker, wet floor reflection mismatches, no gore.
+
+- forest-threat.jpg: Wide foggy Korean coastal pine forest, slender creature twisted bark-like limbs with traces of human raincoat crouching behind tree, extends hand inviting, faint yellow eyes, partial visibility, no gore.
+
+- pier-threat.jpg: Wide Korean fishing pier night, low crawling inhuman shape of wet fishing nets and long jointed arms climbs from water, small pale reflective faces in net, distant white beacon, no gore.
+
+- market-threat.jpg: Wide abandoned Korean covered market night, tall mannequin entity among suspended raincoats, overlapping fingers, tilted head, shadow reaches nearer than feet, flickering light, no gore.
+
+## 인물별 상태 이미지
+
+- suho-aberrant.png, skeptic-aberrant.png, haewon-aberrant.png, operator-aberrant.png
+- suho-injured.png, skeptic-injured.png, haewon-injured.png, operator-injured.png
+
+참조: 해당 인물의 정상 이미지. 프롬프트: identity-preserve: same exact adult, hair and clothing; one transparent waist-up cutout. Distorted variant: twisted pose, uneven shoulders, extended arm, black signal veins, amber eyes, no gore. Injury variant: dry forearm bandage, subtle cheek bruise and forehead gauze, tired expression; normal human eyes, no mutation. No collage or inset.
+
+## 기존 이미지
+
+서진·도윤·주인공의 정상/부상/변이 이미지, 상세 지도, 지역 배경은 앞선 버전에서 생성한 자산입니다.
+
+## 음향
+
+assets/audio/glass-bay-isolation.mp3는 이 프로젝트용으로 합성한 배경음악입니다. 발소리·충격·획득음은 Web Audio로 합성합니다. 외부 음원 링크나 API를 사용하지 않습니다.
