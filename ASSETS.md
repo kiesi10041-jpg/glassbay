@@ -1,12 +1,7 @@
-# 장면 이미지
-
-내장 이미지 생성 도구로 새로 생성한 게임용 콘셉트 아트입니다.
-공통 프롬프트: 한국어 심리 공포 게임, 가로 화면, cinematic painted realism, charcoal blue grey / pale jade / amber, eye level, realistic materials, no people, no gore, no readable text, no UI.
-
-- assets/ward.jpg: 폐쇄된 해안 대피소 의무실, 침대·단말기·열린 철문
-- assets/board.jpg: 버려진 학교 복도의 유리 게시판·핀으로 고정한 종이·멈춘 시계
-- assets/pier.jpg: 해무 속 야간 선착장·구조정·계류줄·경고등
-- assets/relay.jpg: 지하 통신 중계실·케이블·아날로그 패널·방수문
-- assets/town.jpg: 해안 마을 광장·닫힌 약국·학교·버스 정류장·신호탑
-
-이미지 속 글자는 사용하지 않고, 정확한 게임 규정은 HTML 텍스트로 표시합니다.
+# 이미지 생성 기록
+환경 12개와 인물 3개는 내장 이미지 생성 도구로 제작한 게임용 이미지입니다.
+기존: ward, board, pier, relay, town.
+신규 환경: station(폐역), reservoir(저류조), lighthouse(등대), archive(보관소), market(시장), forest(해송 숲), substation(변전소).
+신규 인물: player(통신 기사 전신), seojin(서진), doyun(도윤).
+공통 환경 프롬프트: 한국 해안 마을의 심리 공포 게임, cinematic painted realism, charcoal blue grey / muted jade / amber, realistic materials, eye level, no people, no readable text, no logos, no UI.
+인물은 같은 화풍의 투명 배경 자산으로 생성했습니다. 부상 위치와 지도 연결은 정확한 표시를 위해 코드로 그립니다.
