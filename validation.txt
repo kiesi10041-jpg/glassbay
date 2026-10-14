@@ -1,3 +1,5 @@
+v5.3 validation 2026-10-14
+Syntax checks: data.js, game.js, ui.js, verify.cjs passed.
 PASS real map traversal sea route / epilogue
 PASS school route
 PASS drain route
@@ -28,4 +30,22 @@ PASS pharmacy regression across 20 saved RNG states
 PASS asset references and graph symmetry
 PASS third-run responsibility clue and question
 PASS separate-script reload preserves event phase, RNG and mimic identity
+PASS bootstrap readiness and versioned bundle links
+PASS desktop phone terminal is scoped independently from mobile menu
+PASS narration, action result and attributed speech are separated
+PASS ECHO reply appears only inside phone conversation
+PASS emergency stabilisation consumes supply and retains untreated injuries
+PASS recovered player can face a new synchronization crisis
+PASS exit investigation allows separation before final ending
+PASS action dialogue persists without duplicate records on render
+PASS separate visible metrics and saved per-reply probability
+PASS Nara responds to current action and skips unrelated filler
+PASS copied memories cannot solve identity alone; independent discrepancies combine
+PASS injured human memory uncertainty does not imply impersonation
+PASS early exploration can reach power station and forest without prescribed clue order
+PASS PC text-pane scroll preserved independently; new location resets reader (mock DOM)
+PASS failed escape explains its local cause and related evidence
+PASS secondary NPC testimony is attributed and stored as dialogue
 ALL CHECKS PASSED
+
+Limit: mocked DOM. No physical mobile or real desktop browser layout, touch, audio or measured session-time verification. Not all endings were collected through full campaign play.

@@ -81,3 +81,17 @@ const TRUTH=[
 CLUES.delay={title:'차단을 미룬 14분',kind:'사실',text:'이현은 관리소의 해원과 학교의 부상자 위치를 확인하려 송신 차단을 14분 미뤘다. 외부 회선을 따로 확보하자고 요청했지만 그동안 모방 신호도 퍼졌다.',question:'나는 왜 바로 연결을 끊지 않았어?'};
 ACTIONS.relay.push(A('lastDecision','봉인된 비상 작업대에서 마지막 차단 결정을 읽는다',{cycle:3,needClue:'original',needClue2:'archiveLog',clue:'delay',text:'기록에는 네가 직접 차단을 미뤄 달라고 요청한 목소리가 있다. 사람을 구하려던 선택은 진짜였다. 그동안 다른 사람에게 신호가 퍼진 것도 진짜였다. 둘 중 하나만 기억하면 사건을 이해할 수 없다.'}));
 TRUTH.splice(5,0,['차단을 미룬 이유','이현은 관리소와 학교에 남은 사람의 위치를 확인하려 차단을 14분 미뤘다. 별도의 외부 회선을 확보하려는 요청은 늦게 처리됐다. 구하려던 의도와 피해가 커진 결과는 함께 존재한다.']);
+
+// v5.3 editorial and exploration consistency.
+PEOPLE.서진.memory='헤어지면 광장의 파란 우체통에서 기다리기로 해요.';PEOPLE.도윤.memory='선반 오른쪽을 밧줄로 묶어서 꺼내 줬죠. 그 매듭을 기억해요.';PEOPLE.나래.memory='이 회색 천으로 화면을 가린 건 소리를 줄이려던 거야.';PEOPLE.수호.memory='따뜻한 물을 건넸을 때도 기계는 두 손으로 잡고 있었어요.';PEOPLE.해원.memory='약 봉투 안에 언니에게 줄 작은 조개를 넣었어요.';PEOPLE.윤서.memory='처음에 이름을 말하지 말고 손목 번호만 확인하라고 했어요.';
+ACTIONS.hall.find(a=>a.id==='key').needClue=undefined;
+ACTIONS.forest.find(a=>a.id==='haewon').text='관리소 안에서 노란 우비를 입은 여자가 몸을 일으킨다. 약 봉투와 물병이 발치에 놓여 있다. 그녀의 단말기는 꺼져 있다. “선을 건드리지 말고 약만 가져오라고 했잖아요. 정말 기억이 안 나요?”';
+ENDS.find(e=>e.id==='reef').text='붉은 불빛을 향해 배를 몰았다. 파도가 갈라지는 사이로 암초가 드러난다. 불빛은 구조선의 안내가 아니라 위험을 알리는 경고였다. 배를 돌리기엔 이미 너무 가까웠다.';
+
+// Details remain understandable when evidence is found in a different order.
+WORLD.forest.text='해송 숲 안쪽으로 끊어진 전선이 이어진다. 노란 약 봉투가 나뭇가지에 걸려 있고, 낮은 관리소 지붕이 그 뒤로 보인다. 길 안쪽에서 익숙한 목소리가 이름을 부른다. 발자국은 네가 온 길에만 남아 있다.';
+ACTIONS.ward.find(a=>a.id==='naraPast').speaker='나래';
+ACTIONS.forest.find(a=>a.id==='shell').speaker='해원';
+ACTIONS.square.find(a=>a.id==='mapBoard').text='지도의 실선은 걸어서 이어지는 길이다. 학교 옆으로 회관과 폐역이 있고, 시장 뒤 길은 중계실로 이어진다. 항구 쪽으로 돌아가거나 중계실을 지나 숲으로 갈 수도 있다. 치료 기록에는 회관에서 환자를 옮겼다고 적혀 있다.';
+ACTIONS.hall.find(a=>a.id==='photo').text='필름 사진 한 귀퉁이에 0417이라는 작업 번호가 적혀 있다. 그 옆 사람의 얼굴과 작업복이 너와 닮았다. 그는 헤드폰을 쓴 여자와 전원함을 들고 있다. 뒷면에는 노란 우비를 입은 여자의 이름이 해원이라고 적혀 있다. 그녀의 손에는 작은 조개가 있다.';
+ACTIONS.market.find(a=>a.id==='food').text='생수 두 병과 마른 식량이 남아 있다. 한 봉투는 최근에 뜯긴 듯하고, 물병 옆에는 젖은 손자국이 있다. 누군가 먼저 이곳을 지나갔다.';
