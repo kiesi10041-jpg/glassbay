@@ -111,3 +111,7 @@ for(const [id,title,text] of [
 ])ENDS.push({id,title,text,n:ENDS.length+1});
 
 TRUTH.splice(TRUTH.findIndex(([title])=>title==='탈출 이후'),0,['곳곳의 괴물','스피커 아래 긴 팔, 숲의 빈 우비, 시장의 겹친 손, 물 아래 형체는 같은 모방 신호가 서로 다른 몸과 물건에 남은 결과다. 침식된 사람과 그 흔적을 흉내 낸 존재가 함께 남았다. 얼굴이나 목소리가 닮았다는 이유만으로 사람을 판정할 수 없지만, 실제로 길을 막고 상처를 남기는 손을 환각이라고 넘길 수도 없다. 플레이어의 시야가 어긋나는 사건은 사진과 반사처럼 별도 흔적으로 구별한다.']);
+
+// v5.5: reply to the player's actual question before proposing companionship.
+ACTIONS.square.find(a=>a.id==='seojin').text='여자는 서진이라고 이름을 말한다. 손에 든 종이는 물에 젖지 않게 접어 두었다. “학교 체육관 앞에서 마지막으로 봤어요. 해원이 약을 가져다주고 오겠다고 했어요. 단말기는 밖으로 나갔다는데… 연락이 없어요.”';
+PEOPLE.서진.memory='학교 체육관 앞에서 해원을 마지막으로 봤다고 말했어요.';

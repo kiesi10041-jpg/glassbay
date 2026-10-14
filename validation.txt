@@ -1,5 +1,5 @@
-v5.4 validation 2026-10-15 KST
-Syntax checks passed.
+v5.5 validation 2026-10-15 KST
+JavaScript syntax checks passed.
 PASS real map traversal sea route / epilogue
 PASS school route
 PASS drain route
@@ -63,6 +63,22 @@ PASS ECHO questions sit by the input and hide with the phone
 PASS reload preserves caught phase and survival cost
 PASS prior 28-ending completion keeps unlocked truth after expansion
 PASS attacking mimic and synchronized player have visible foreground mutation images
+PASS variable cost/probability ranges draw once per answer and do not reroll in menus
+PASS repeat-question penalty is shown before sending
+PASS probability range never promises 0 or 100 percent
+PASS comparison shows source/claim/result, records evidence and prevents duplicate rewards
+PASS previously verified save messages regain a visible comparison result
+PASS first question receives a location answer; erosion lesson and changing personal references persist
+PASS discrepancy badge depends on observed facts, not hidden identity
+PASS monsters move on adjacent habitat paths; menu inspection does not move or reroll them
+PASS school creature can appear outside school with location-appropriate cues
+PASS location reports can be true or false, carry timestamps and remain claims
+PASS actual encounter can confirm a report without validating future location
+PASS PC question grid and plain terminal labels
+PASS location report is logged as a claim and can mark the map without moving player
+PASS save/reload keeps actor positions and report map marker
+PASS truthful reports do not present dead companions as currently roaming survivors
+PASS named creature questions and natural spoken location reports
 ALL CHECKS PASSED
 
-Limit: mocked DOM, not a real browser. No measured touch, audio, exact responsive layout or full-session playtime verification.
+Limit: mocked DOM. No physical PC/mobile browser layout, touch or audio verification. Not a full campaign playthrough of all 32 endings.
