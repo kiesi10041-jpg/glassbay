@@ -1,4 +1,6 @@
 'use strict';
+window.GlassBayFiles??={};window.GlassBayFiles['data.js']='5.22';
+
 const WORLD={
  ward:{name:'대피소',art:'ward',x:14,y:69,links:['square','clinic'],text:'침대 아래에 젖은 작업화가 놓여 있다. 창밖의 바다는 회색인데, 파도는 멀리 방파제에 부딪힐 뿐 이 방까지 들리지 않는다. 손목표에는 이름 대신 0417이 적혀 있다.'},
  square:{name:'중앙 광장',art:'town',x:34,y:57,links:['ward','clinic','school','market'],text:'비에 젖은 광장 한가운데서 대피 방송이 반복된다. 버스 정류장에 남은 여자가 지나가는 사람의 얼굴을 하나씩 확인한다. 그녀의 손에도 네 것과 비슷한 단말기가 있다.'},
@@ -126,9 +128,9 @@ const INTRO_SCENES={
  윤서:{text:'헤드폰을 쓴 여자가 벽 너머에서 나온다. 가슴의 작업 명찰에는 통신 작업반 윤서라고 적혀 있다. 너를 보더니 붕대를 감던 손을 멈춘다.',dialogue:[{who:'나',text:'누구세요? 단말기에서 들었던 목소리 같은데요.'},{who:'윤서',text:'윤서예요. 처음에 문을 잠그라고 한 사람.'},{who:'나',text:'계속 당신이 대답한 건가요?'},{who:'윤서',text:'처음에는요. 그 뒤에 제 목소리로 나간 말 중에는 제가 하지 않은 것도 있어요.'}]}
 };
 for(const list of Object.values(ACTIONS))for(const a of list)if(a.npc&&INTRO_SCENES[a.npc]){a.text=INTRO_SCENES[a.npc].text;a.dialogue=INTRO_SCENES[a.npc].dialogue;delete a.say;}
-ACTIONS.ward.push(A('naraSymptoms','나래에게 손목의 검은 자국을 묻는다',{needHere:'나래',knowledge:'erosionExplained',text:'나래는 천을 쥔 손을 내려다본다.',dialogue:[{who:'나',text:'손목은 왜 그렇게 됐어요?'},{who:'나래',text:'기계를 오래 쓰고 나서 번졌어. 여기선 침식이라고 불러. 상처랑 달라. 약을 써도 그대로였거든.'},{who:'나',text:'줄일 방법은 없어요?'},{who:'나래',text:'꺼두고 쉬면 덜해져. 차폐 필터도 써 봤고. 이상하게 보이는 사람이 있으면 바로 덤비지 마. 내 눈이 틀렸을 때도 있었어.'}]}));
+ACTIONS.ward.push(A('naraSymptoms','나래에게 손목의 검은 자국을 묻는다',{needHere:'나래',knowledge:'erosionExplained',text:'나래가 소매를 조금 걷고 손목의 검은 자국을 내려다본다.',dialogue:[{who:'나',text:'손목은 왜 그렇게 됐어요?'},{who:'나래',text:'기계를 오래 쓰고 나서 번졌어. 여기선 침식이라고 불러. 상처랑 달라. 약을 써도 그대로였거든.'},{who:'나',text:'줄일 방법은 없어요?'},{who:'나래',text:'단말기를 꺼 두고 조용한 데서 숨을 골라 봐. 그렇게 쉬면 침식이 조금씩 줄더라. 이상하게 보이는 사람이 있어도 바로 덤비진 마. 내 눈이 틀렸을 때도 있었어.'}]}));
 ACTIONS.square.push(A('seojinTrail','서진에게 해원이 학교를 떠난 이유를 묻는다',{needHere:'서진',text:'서진이 종이에 적힌 마지막 수신 시각을 짚는다.',dialogue:[{who:'나',text:'학교에서는 왜 나간 거예요?'},{who:'서진',text:'약을 가져다주고 오겠다고 했어요. 제가 부탁한 일이었어요.'},{who:'나',text:'누구에게 가져다주는 약이었나요?'},{who:'서진',text:'다친 사람이 있다는 연락만 들었어요. 어디에 있는지는 해원이 확인한다고 했고요. 제가 같이 갔어야 했는데.'}]}));
-ACTIONS.square.push(A('seojinDevice','서진에게 단말기 사용 뒤의 이상을 묻는다',{needHere:'서진',knowledge:'erosionExplained',text:'서진이 단말기를 꺼내다 말고 다시 주머니에 넣는다.',dialogue:[{who:'나',text:'기계는 계속 켜 두는 게 나을까요?'},{who:'서진',text:'잘 모르겠어요. 오래 듣고 나면 손목에 검은 선이 번져요. 사람 얼굴이 이상하게 보이기도 하고요.'},{who:'서진',text:'마을에서는 침식이라고 부르더라고요. 화면을 끄고 쉬거나 차폐 필터를 쓰면 조금 나아졌어요. 상처를 치료하는 것과는 달랐고요.'}]}));
+ACTIONS.square.push(A('seojinDevice','서진에게 단말기 사용 뒤의 이상을 묻는다',{needHere:'서진',knowledge:'erosionExplained',text:'서진이 단말기를 꺼내다 말고 다시 주머니에 넣는다.',dialogue:[{who:'나',text:'기계는 계속 켜 두는 게 나을까요?'},{who:'서진',text:'잘 모르겠어요. 오래 듣고 나면 손목에 검은 선이 번져요. 사람 얼굴이 이상하게 보이기도 하고요.'},{who:'서진',text:'마을에서는 침식이라고 부르더라고요. 단말기를 꺼 두고 한동안 조용히 쉬면 조금 나아졌어요. 긴장이 풀리고 나서야 얼굴도 제대로 보였고요. 상처를 치료하는 것과는 달랐어요.'}]}));
 ACTIONS.school.push(A('doyunWork','도윤에게 어떤 일을 하던 사람인지 묻는다',{needHere:'도윤',text:'도윤이 다친 손을 움직여 보다가 얼굴을 찌푸린다.',dialogue:[{who:'나',text:'원래 여기서 일했어요?'},{who:'도윤',text:'설비 점검을 했어요. 그래서 혼자 고칠 수 있을 줄 알았죠.'},{who:'도윤',text:'그런데 기계가 시키는 순서가 점검판과 달랐어요. 다음에는… 같이 표지부터 봐 주세요.'}]}));
 ACTIONS.hall.push(A('suhoTrust','수호에게 단말기를 끄기 두려운 이유를 묻는다',{needHere:'수호',text:'수호의 엄지가 전원 버튼 위에서 멈춘다.',dialogue:[{who:'나',text:'지금은 물이 없잖아요. 잠깐 꺼 보는 건 어때요?'},{who:'수호',text:'알아요. 그런데 끄려고 하면 또 경고가 와요. 이번에는 제가 못 들을까 봐…'},{who:'나',text:'경고가 언제 왔는지 같이 볼까요?'},{who:'수호',text:'그러면 옆에 있어 주세요. 혼자 끄지는 못하겠어요.'}]}));
 ACTIONS.forest.push(A('haewonMemory','해원에게 전에 만났던 일을 묻는다',{needHere:'해원',text:'해원이 책상 위에 남겨 둔 메모를 네 쪽으로 돌린다.',dialogue:[{who:'나',text:'내가 여기서 무슨 말을 했어요?'},{who:'해원',text:'사람이 남아 있는지 확인하고 중계실로 돌아간다고 했어요. 저한테는 이곳에서 기다리라고 했고요.'},{who:'나',text:'그 뒤에 다른 연락은 없었어요?'},{who:'해원',text:'같은 목소리가 따라오라고 했어요. 그런데 메모에는 기다리라고 적혀 있어서 안 갔어요.'}]}));
@@ -252,7 +254,7 @@ spokenScene('윤서','칸막이 뒤에서 여자가 나온다. 헤드폰 선이 
 for(const list of Object.values(ACTIONS))for(const a of list)if(a.npc){a.text=INTRO_SCENES[a.npc].text;a.dialogue=INTRO_SCENES[a.npc].dialogue;}
 const exchange=(id,pairs)=>narrativeAction(id,{dialogue:pairs.map(([who,text])=>({who,text}))});
 exchange('naraSymptoms',[
- ['나','손목, 다친 거예요?'],['나래','이거? 상처 아니야. 문질러도 안 지워져.'],['나','언제부터요?'],['나래','기계 붙들고 밤샌 다음부터. 다들 침식이니 뭐니 하던데.'],['나','약은 써 봤어요?'],['나래','소용없었어. 꺼 두고 쉬니까 좀 옅어지긴 해. 필터도 조금은 낫고.']]);
+ ['나','손목, 다친 거예요?'],['나래','이거? 상처 아니야. 문질러도 안 지워져.'],['나','언제부터요?'],['나래','단말기 붙들고 밤샌 다음부터. 마을 사람들은 침식이라고 부르더라.'],['나','약은 써 봤어요?'],['나래','소용없었어. 대신 단말기를 꺼 두고 조용한 데 앉아 있었지. 숨 좀 고르고 나니까 덜 어지럽더라.'],['나','그렇게 쉬면 줄어드는 거예요?'],['나래','조금씩은. 눈앞이 덜 흔들리고, 손목의 선도 좀 옅어졌어. 끈다고 바로 없어지는 건 아니고.']]);
 exchange('naraPast',[
  ['나','아까, 이번엔 맞았다고 했죠. 전에는 틀렸어요?'],['나래','붉은 불빛 쪽으로 가라더라. 구조선이라고. 내가 그걸 방송했고.'],['나','사람들이 갔어요?'],['나래','…응. 무전이 끊기기 전에 파도 소리가 들렸어. 배 부서지는 소리도.'],['나','그래서 기계를 가린 거군요.'],['나래','그렇다고 네 것까지 뺏을 순 없지. 나올 문은 제대로 알려 줬으니까.']]);
 exchange('seojinTrail',[
