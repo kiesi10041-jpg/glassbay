@@ -55,3 +55,6 @@ A single original horror creature called the Low Tide: crawling amphibious human
 
 ### assets/monsters/hand.png
 One isolated monstrous left forearm and hand reaching from the lower right corner toward the upper left, extremely long jointed dark fingers spread across the frame, wet cracked charcoal skin, six crooked fingers, severe foreshortening, seen from above as though pressing onto glass. No body or head, only arm and hand. Wide composition, fingers extend left across a broad horizontal area.
+
+## v5.8 음성 효과
+assets/audio/breath.wav, gasp.wav, cry.wav: 24kHz mono PCM. 고정 난수 시드 417의 대역 통과 잡음과 호흡 포락선, 변조한 조화음 및 발성 대역 필터로 직접 합성. 외부 녹음·마이크·음성 API 사용 없음. 실제 사람 비명 녹음으로 표기하지 않음.

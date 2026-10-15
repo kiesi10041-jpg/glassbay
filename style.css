@@ -50,3 +50,19 @@ body.large .conversation .dialogue p,body.large .prose p,body.large .actions but
 @media(max-width:899px){#echoSuggestions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:156px;gap:5px}#echoSuggestions button{min-width:0;max-width:100%;font-size:12px;line-height:1.5}}
 
 .mapNode.reported{outline:2px dashed #eac07b;outline-offset:4px}.locationReport button{font-size:13px;margin-top:9px;padding:6px 10px;min-height:38px}
+
+/* v5.6: the foreground has a definite box; Safari must not size an implicit grid row from the PNG. */
+.monsterStage{display:block;inset:0;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden}.monsterStage .monsterSprite{position:absolute;inset:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;transform:none}.monsterStage.phase2 .monsterSprite,.monsterStage.phase3 .monsterSprite,.monsterStage.fatal .monsterSprite{width:100%;height:100%;transform:none}.graspedChoice{display:block!important;padding:16px 174px 22px 16px!important;min-height:136px!important;overflow:hidden}.graspedChoice .actionText{display:block;max-width:100%}.graspedChoice small{position:relative;display:block;max-width:100%;padding:0;background:none;z-index:1}.graspedChoice .choiceHand{top:10px;right:9px;bottom:auto;width:150px;height:112px;object-fit:contain;transform:none;z-index:2}.graspWhisper{top:auto;bottom:6px;right:9px;width:150px;text-align:center;font-size:11px}.innerThought{padding:10px 14px;margin:14px 0;border-left:2px solid #9c8b76;color:#d7cbbb;background:#252420}.innerThought p{font-size:15px;margin:0;line-height:1.8}.innerThought .sectionLabel{margin-bottom:5px}
+@media(max-width:899px){.monsterPresent #sceneView{grid-template-rows:clamp(220px,35%,300px) minmax(0,1fr)}.monsterStage .monsterSprite,.monsterStage.phase2 .monsterSprite,.monsterStage.phase3 .monsterSprite{inset:6px 0 0 auto;right:0;left:auto;width:70%;height:calc(100% - 6px);max-height:100%;object-fit:cover;object-position:50% 8%;transform:none}.monsterStage.creature-water .monsterSprite{object-fit:contain;object-position:50% 60%;width:85%}.monsterStage.creature-forest .monsterSprite{object-position:50% 10%}.monsterPresent .sceneTitle{max-width:46%;bottom:10px}.monsterPresent .sceneTitle h1{font-size:21px}.graspedChoice{padding:14px 130px 23px 14px!important;min-height:128px!important}.graspedChoice .choiceHand{width:116px;height:98px;right:5px;top:10px}.graspWhisper{width:116px;right:5px;font-size:10px}.graspedChoice small{font-size:12px}}
+@media(max-height:560px) and (max-width:899px){.monsterPresent #sceneView{grid-template-rows:clamp(115px,40%,160px) minmax(0,1fr)}}
+
+/* Brief injury cues affect scenery, never the position of action buttons. */
+@keyframes pain-flinch{0%,100%{transform:translate(0)}25%{transform:translate(-4px,2px) rotate(-.25deg)}65%{transform:translate(3px,-1px)}}
+@keyframes focus-loss{0%,100%{filter:none}35%{filter:blur(2px) saturate(.55)}}
+@keyframes leg-buckle{0%,100%{transform:translateY(0)}40%{transform:translateY(7px) rotate(.3deg)}}
+@keyframes breath-release{0%,100%{transform:scale(1)}50%{transform:scale(1.018)}}
+.painFlinch .sceneArt{animation:pain-flinch .36s ease-out}
+.focusLoss .sceneArt{animation:focus-loss .38s ease-out}
+.legBuckling .sceneArt{animation:leg-buckle .38s ease-out}
+.breathRelease .sceneArt{animation:breath-release .38s ease-out}
+@media(prefers-reduced-motion:reduce){.painFlinch .sceneArt,.focusLoss .sceneArt,.legBuckling .sceneArt,.breathRelease .sceneArt{animation:none!important}}

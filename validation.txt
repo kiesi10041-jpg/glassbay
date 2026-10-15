@@ -1,5 +1,3 @@
-v5.5 validation 2026-10-15 KST
-JavaScript syntax checks passed.
 PASS real map traversal sea route / epilogue
 PASS school route
 PASS drain route
@@ -79,6 +77,19 @@ PASS location report is logged as a claim and can mark the map without moving pl
 PASS save/reload keeps actor positions and report map marker
 PASS truthful reports do not present dead companions as currently roaming survivors
 PASS named creature questions and natural spoken location reports
+PASS unknown targets hidden from initial questions; helper identity query classified correctly
+PASS survivor contact must be read; creature position follows an actual sighting
+PASS both key types can be acquired in either order without repeating either pickup
+PASS legacy unscoped key completion does not hide the other room key
+PASS six authored introductions and optional follow-up conversations complete once
+PASS first question does not assume sibling knowledge; follow-ups require actual presence
+PASS generic rescue/reunion/inspection lines preserve NPC speech registers
+PASS observational prose is not player speech; inner thoughts have a separate section
+PASS explicit mobile monster bounds and separate hand/text regions exist (CSS inspection, not browser rendering)
+PASS early records hide identity and unordered forest entry does not invent prior knowledge
+PASS forest arrival text follows acquired evidence and destination remains unconfirmed
+PASS four creature survivals retain observed evidence without menu duplication
+PASS companion aftermath and saved encounter history; ending count unchanged
+PASS vocal mute, cooldown, priority and settings container (mock audio)
+PASS three bundled synthesized vocal WAV assets exist
 ALL CHECKS PASSED
-
-Limit: mocked DOM. No physical PC/mobile browser layout, touch or audio verification. Not a full campaign playthrough of all 32 endings.
