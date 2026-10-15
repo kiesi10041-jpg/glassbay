@@ -1,134 +1,167 @@
 {
   "sea": {
     "file": "assets/endings/story/sea.png",
-    "source": "안개 속 마을을 떠나는 새벽의 배.png"
+    "source": "안개 속 마을을 떠나는 새벽의 배.png",
+    "optimized_file": "assets/endings/web/sea.webp"
   },
   "seaTogether": {
     "file": "assets/endings/story/seaTogether.png",
-    "source": "맞잡은 손, 새벽의 탈출.png"
+    "source": "맞잡은 손, 새벽의 탈출.png",
+    "optimized_file": "assets/endings/web/seaTogether.webp"
   },
   "schoolSolo": {
     "file": "assets/endings/story/schoolSolo.png",
-    "source": "녹색 비상문 너머의 새벽.png"
+    "source": "녹색 비상문 너머의 새벽.png",
+    "optimized_file": "assets/endings/web/schoolSolo.webp"
   },
   "schoolTogether": {
     "file": "assets/endings/story/schoolTogether.png",
-    "source": "새벽 비상문 너머, 손을 잡다.png"
+    "source": "새벽 비상문 너머, 손을 잡다.png",
+    "optimized_file": "assets/endings/web/schoolTogether.webp"
   },
   "drain": {
     "file": "assets/endings/story/drain.png",
-    "source": "새벽, 녹슨 사다리 끝의 탈출.png"
+    "source": "새벽, 녹슨 사다리 끝의 탈출.png",
+    "optimized_file": "assets/endings/web/drain.webp"
   },
   "drainTogether": {
     "file": "assets/endings/story/drainTogether.png",
-    "source": "배수 사다리에서 서로를 구하다.png"
+    "source": "배수 사다리에서 서로를 구하다.png",
+    "optimized_file": "assets/endings/web/drainTogether.webp"
   },
   "rail": {
     "file": "assets/endings/story/rail.png",
-    "source": "안개 터널 앞, 마침내 안도.png"
+    "source": "안개 터널 앞, 마침내 안도.png",
+    "optimized_file": "assets/endings/web/rail.webp"
   },
   "light": {
     "file": "assets/endings/story/light.png",
-    "source": "구조선을 부르는 거울 신호.png"
+    "source": "구조선을 부르는 거울 신호.png",
+    "optimized_file": "assets/endings/web/light.webp"
   },
   "forest": {
     "file": "assets/endings/story/forest.png",
-    "source": "새벽 소나무 길, 뒤돌아본 창고.png"
+    "source": "새벽 소나무 길, 뒤돌아본 창고.png",
+    "optimized_file": "assets/endings/web/forest.webp"
   },
   "operator": {
     "file": "assets/endings/story/operator.png",
-    "source": "새벽의 열린 터널.png"
+    "source": "새벽의 열린 터널.png",
+    "optimized_file": "assets/endings/web/operator.webp"
   },
   "dark": {
     "file": "assets/endings/story/dark.png",
-    "source": "꺼진 단말기, 열린 출구.png"
+    "source": "꺼진 단말기, 열린 출구.png",
+    "optimized_file": "assets/endings/web/dark.webp"
   },
   "earned": {
     "file": "assets/endings/story/earned.png",
-    "source": "구조 데스크의 테이프 불일치.png"
+    "source": "구조 데스크의 테이프 불일치.png",
+    "optimized_file": "assets/endings/web/earned.webp"
   },
   "trueSight": {
     "file": "assets/endings/story/trueSight.png",
-    "source": "구조 대피소에서 마주한 진짜 얼굴.png"
+    "source": "구조 대피소에서 마주한 진짜 얼굴.png",
+    "optimized_file": "assets/endings/web/trueSight.webp"
   },
   "falseSight": {
     "file": "assets/endings/story/falseSight.png",
-    "source": "구조소의 장갑 손, 뒤틀린 그림자.png"
+    "source": "구조소의 장갑 손, 뒤틀린 그림자.png",
+    "optimized_file": "assets/endings/web/falseSight.webp"
   },
   "mimic": {
     "file": "assets/endings/story/mimic.png",
-    "source": "대피소 문간의 기이한 그림자.png"
+    "source": "대피소 문간의 기이한 그림자.png",
+    "optimized_file": "assets/endings/web/mimic.webp"
   },
   "changedCompanion": {
     "file": "assets/endings/story/changedCompanion.png",
-    "source": "격리막 너머 맞닿은 손.png"
+    "source": "격리막 너머 맞닿은 손.png",
+    "optimized_file": "assets/endings/web/changedCompanion.webp"
   },
   "changedSelf": {
     "file": "assets/endings/story/changedSelf.png",
-    "source": "검은 혈관이 번진 구조대원의 손.png"
+    "source": "검은 혈관이 번진 구조대원의 손.png",
+    "optimized_file": "assets/endings/web/changedSelf.webp"
   },
   "haewon": {
     "file": "assets/endings/story/haewon.png",
-    "source": "폭풍 끝, 해안 구조소의 재회.png"
+    "source": "폭풍 끝, 해안 구조소의 재회.png",
+    "optimized_file": "assets/endings/web/haewon.webp"
   },
   "reconcile": {
     "file": "assets/endings/story/reconcile.png",
-    "source": "손에 돌아온 익숙한 물건.png"
+    "source": "손에 돌아온 익숙한 물건.png",
+    "optimized_file": "assets/endings/web/reconcile.webp"
   },
   "disclosure": {
     "file": "assets/endings/story/disclosure.png",
-    "source": "구조대에 건넨 마지막 기록.png"
+    "source": "구조대에 건넨 마지막 기록.png",
+    "optimized_file": "assets/endings/web/disclosure.webp"
   },
   "stay": {
     "file": "assets/endings/story/stay.png",
-    "source": "해안 중계실의 마지막 호출.png"
+    "source": "해안 중계실의 마지막 호출.png",
+    "optimized_file": "assets/endings/web/stay.webp"
   },
   "name": {
     "file": "assets/endings/story/name.png",
-    "source": "닫힌 문 사이, 마지막 함정.png"
+    "source": "닫힌 문 사이, 마지막 함정.png",
+    "optimized_file": "assets/endings/web/name.webp"
   },
   "reef": {
     "file": "assets/endings/story/reef.png",
-    "source": "붉은 경보등 아래 마지막 매달림.png"
+    "source": "붉은 경보등 아래 마지막 매달림.png",
+    "optimized_file": "assets/endings/web/reef.webp"
   },
   "caught": {
     "file": "assets/endings/story/caught.png",
-    "source": "어둠의 손에 붙잡힌 생존자.png"
+    "source": "어둠의 손에 붙잡힌 생존자.png",
+    "optimized_file": "assets/endings/web/caught.webp"
   },
   "drowned": {
     "file": "assets/endings/story/drowned.png",
-    "source": "수중 사다리 아래, 마지막 손길.png"
+    "source": "수중 사다리 아래, 마지막 손길.png",
+    "optimized_file": "assets/endings/web/drowned.webp"
   },
   "signal": {
     "file": "assets/endings/story/signal.png",
-    "source": "끝없는 안내방송 속의 남자.png"
+    "source": "끝없는 안내방송 속의 남자.png",
+    "optimized_file": "assets/endings/web/signal.webp"
   },
   "assault": {
     "file": "assets/endings/story/assault.png",
-    "source": "해안 대피소의 마지막 정적.png"
+    "source": "해안 대피소의 마지막 정적.png",
+    "optimized_file": "assets/endings/web/assault.webp"
   },
   "exhausted": {
     "file": "assets/endings/story/exhausted.png",
-    "source": "잠긴 문 앞의 정적.png"
+    "source": "잠긴 문 앞의 정적.png",
+    "optimized_file": "assets/endings/web/exhausted.webp"
   },
   "schoolTaken": {
     "file": "assets/endings/story/schoolTaken.png",
-    "source": "학교 문 앞, 긴손 괴물의 포획.png"
+    "source": "학교 문 앞, 긴손 괴물의 포획.png",
+    "optimized_file": "assets/endings/web/schoolTaken.webp"
   },
   "forestTaken": {
     "file": "assets/endings/story/forestTaken.png",
-    "source": "노란 우비 괴물의 마지막 덫.png"
+    "source": "노란 우비 괴물의 마지막 덫.png",
+    "optimized_file": "assets/endings/web/forestTaken.webp"
   },
   "marketTaken": {
     "file": "assets/endings/story/marketTaken.png",
-    "source": "시장 천막 아래로 끌려간 생존자.png"
+    "source": "시장 천막 아래로 끌려간 생존자.png",
+    "optimized_file": "assets/endings/web/marketTaken.webp"
   },
   "waterTaken": {
     "file": "assets/endings/story/waterTaken.png",
-    "source": "침수 난간 아래로 끌려간 손.png"
+    "source": "침수 난간 아래로 끌려간 손.png",
+    "optimized_file": "assets/endings/web/waterTaken.webp"
   },
   "outbreak": {
     "file": "assets/endings/story/outbreak.png",
-    "source": "v5.17 생성 전용 이미지 · 외부 대피소 감염"
+    "source": "v5.17 생성 전용 이미지 · 외부 대피소 감염",
+    "optimized_file": "assets/endings/web/outbreak.webp"
   }
 }

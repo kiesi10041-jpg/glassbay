@@ -1,5 +1,5 @@
 'use strict';
-window.GlassBayFiles??={};window.GlassBayFiles['cast.js']='5.22';
+window.GlassBayFiles??={};window.GlassBayFiles['cast.js']='5.24';
 
 // Final narrative layer: facts belong to the scene where they are learned.
 const CAST_SCENES={
@@ -240,3 +240,12 @@ objective=function(){
  if(hasClue('job')&&hasClue('photo')&&!hasClue('identity'))return '사진 뒤에 중계실이라고 쓰여 있다. 그곳의 작업 카드를 찾아보면 이름도 알 수 있을까.';
  return castPreviousObjective().replace('수위표','부두 표지판').replace('수호는 기계를','수호는 단말기를');
 };
+
+if(meta.cycle<=1)state.naraReading='stranger';
+const contextualMemoryObservation=actualObservation;
+actualObservation=function(n,mode){const o=contextualMemoryObservation(n,mode),c=state.npc[n];if(mode==='memory'&&o.first&&!c.fake&&!c.changed&&c.hp>=60&&c.trust>=40){if(n==='나래'&&!o.first.includes('왼쪽 계단'))o.reply=o.first.includes('불빛')?'문 앞까지 불빛이 샌다고 했잖아. 그걸 먼저 가리라고 했고.':'복도에서 발소리 들었잖아. 네가 나온 문으로는 나올 수 있었고.';o.current=o.reply||o.current;}return o;};
+const originItem=getItem;
+getItem=function(k,n=1){const before=state.items[k]||0;const result=originItem(k,n);if((state.items[k]||0)>before){state.itemOrigins??={};state.itemOrigins[k]??=[];state.itemOrigins[k].push({loc:state.loc,turn:state.turn,count:(state.items[k]||0)-before});}return result;};
+const currentCycleEvidence=evidenceFile;
+evidenceFile=function(n){const file=currentCycleEvidence(n);return file.cycle!==meta.cycle?{version:1,legacy:true,items:[],memory:null,loc:null,turn:null,cycle:meta.cycle}:file;};
+identityRules=function(){return '<details class="identityRules"><summary>이 회차에 남긴 관찰</summary><p>처음 들은 말과 지녔던 물건을 적어 두었다. 다시 질문하거나 물건을 살피면 지금 확인한 내용이 따로 남는다. 헤어졌다 만난 적이 없어도 자세히 물어볼 수 있다.</p>'+(hasFlag('erosionExplained')?'<p>단말기를 오래 사용한 뒤에는 보이는 모습이 달라질 수 있다고 들었다. 쉬고 다시 보거나, 다른 사람과 함께 살필 수 있다.</p>':'')+'</details>';};

@@ -1,5 +1,5 @@
 'use strict';
-window.GlassBayFiles??={};window.GlassBayFiles['data.js']='5.22';
+window.GlassBayFiles??={};window.GlassBayFiles['data.js']='5.24';
 
 const WORLD={
  ward:{name:'대피소',art:'ward',x:14,y:69,links:['square','clinic'],text:'침대 아래에 젖은 작업화가 놓여 있다. 창밖의 바다는 회색인데, 파도는 멀리 방파제에 부딪힐 뿐 이 방까지 들리지 않는다. 손목표에는 이름 대신 0417이 적혀 있다.'},

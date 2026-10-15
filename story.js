@@ -1,10 +1,10 @@
 'use strict';
-window.GlassBayFiles??={};window.GlassBayFiles['story.js']='5.22';
+window.GlassBayFiles??={};window.GlassBayFiles['story.js']='5.24';
 
 // A replay is another possible account of the incident, not shared time travel.
 const OPENING_IDS=new Set(['wrist','firstMail','firstSave','nara','naraKeep','naraHear','naraDistance','naraPast']);
 const prose=text=>({who:'',text,kind:'narration'}),say=(who,text)=>({who,text});
-function priorNara(){const previous=(meta.naraEpisodes||[]).filter(e=>e.cycle<meta.cycle);const saw=previous.length>0||(meta.npcHistory?.나래||[]).some(e=>e.cycle<meta.cycle);if(!saw)return {mode:'stranger'};if(meta.knowledge.includes('delay'))return {mode:'responsibility'};if(meta.knowledge.includes('archiveLog')||previous.some(e=>e.confessed))return {mode:'testimony'};return {mode:'familiar'};}
+function priorNara(){if(meta.cycle<=1)return {mode:'stranger'};const previous=(meta.naraEpisodes||[]).filter(e=>Number.isInteger(e.cycle)&&e.cycle>=1&&e.cycle<meta.cycle);const saw=previous.length>0||(meta.npcHistory?.나래||[]).some(e=>Number.isInteger(e.cycle)&&e.cycle>=1&&e.cycle<meta.cycle);if(!saw)return {mode:'stranger'};if(meta.knowledge.includes('delay'))return {mode:'responsibility'};if(meta.knowledge.includes('archiveLog')||previous.some(e=>e.confessed))return {mode:'testimony'};return {mode:'familiar'};}
 function openingText(){return '차가운 물방울이 손등에 떨어진다.\n\n눈을 뜨자 천장의 얼룩이 먼저 보인다. 창틀에서 샌 빗물이 침대 모서리를 적시고 있다. 몸을 일으키려다 관자놀이가 욱신거려 다시 멈춘다.\n\n발치에는 젖은 작업화가 가지런히 놓여 있다. 누군가 벗겨 둔 모양이다. 손목에 감긴 종이띠를 돌려 보지만 이름은 없다. 네 자리 숫자뿐이다.\n\n침대 옆 작은 기계가 짧게 진동한다. 그 소리가 멎자 복도에서 신발 끄는 소리가 들린다. 한 번. 잠깐 멈췄다가, 다시 한 번. 이번에는 문 바로 앞이다.';}
 WORLD.ward.text=openingText();
 narrativeAction('wrist',{label:'손목에 감긴 종이띠를 돌려 본다',text:'젖은 종이띠가 피부에 달라붙어 있다. 조심스럽게 돌리자 0417이라는 숫자가 나온다. 이름이 있어야 할 칸에는 아무것도 쓰여 있지 않다.\n\n작업화 끈을 만지자 손가락이 익숙하게 움직인다. 신발은 내 것 같은데, 어디서 신고 왔는지 떠오르지 않는다. 문 밖에서 무언가 바닥을 긁는다.',say:'내 이름이… 뭐였지?'});

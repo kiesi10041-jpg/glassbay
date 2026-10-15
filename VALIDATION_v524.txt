@@ -1,0 +1,469 @@
+verify-515.cjs
+PASS 33 supplied ending images resolve without duplicate portrait or monster overlays
+PASS 33 distinct ending mappings retain original filenames in manifest
+PASS repeated self introduction and consecutive identical speech are suppressed
+PASS previously met NPC cannot replay the introductory action
+PASS handheld terminology is consistent while machinery descriptions remain distinct
+PASS beacon comparison connects the actual plate to the observed light
+ALL V5.15 CHECKS PASSED
+
+
+verify-524.cjs
+PASS first cycle rejects zero/future historical references and uses the stranger introduction
+PASS same-run re-questioning clearly separates the actual first quote and current contextual response
+PASS only valid earlier cycles appear in optional historical comparisons
+PASS inventory details show generated prop art and real pickup location without consuming supplies
+PASS ten detailed items use distinct atlas cells, including all three keys
+PASS actual generated textures decorate normal, terminal and genuinely blocked choices without revealing truth
+PASS texture decode switches on new art and failures retain the existing fallback graphics
+PASS a foreign-cycle baseline is not presented as an observation from the first cycle
+PASS vocals require explicit opt-in and redraw never advances gameplay or plays action feedback
+PASS atlas layouts, text layers and reduced effects retain readable and touchable choices
+
+
+verify-agency.cjs
+PASS no answer oracle, percentages, compare button or reading reward; evidence remains accessible
+PASS topic aliases cannot resend; question disappears in terminal and evidence view
+PASS answered topic memory survives chat pruning and save
+PASS monster ask action sends once, vanishes across views, and a changed stage opens a different follow-up
+PASS true and false advice use identical semantic emphasis; unsafe HTML remains escaped
+PASS raw possessions and movements remain; no verdict badges or already-used observation buttons
+PASS rescue team displays observations rather than a diagnostic count or verdict
+PASS legacy verdicts are neutralized without deleting the underlying record
+PASS button-only terminal keeps free-text form hidden
+PASS earned ending remains reachable by explicit record submission without hijacking ordinary departures
+
+
+verify-atmosphere.cjs
+PASS staged screen effects follow erosion and reverse when erosion falls
+PASS four terminal surfaces vary independently while preserving the exact actionable question
+PASS corruption style cannot reveal whether advice is true or false
+PASS question and reply copies remain escaped and the original text has its own readable layer
+PASS shutdown stops compulsive connection effects while residual erosion remains visible and is not instantly healed
+PASS in-game reduced effects disable all new intrusive layers and animated questions
+PASS operating-system reduced motion is honored even with the game effect preference enabled
+PASS ending artwork clears the infection overlay and compulsive terminal state
+PASS visual redraw consumes no turn or RNG and never edits evidence, answers or observation records
+PASS a new reception gets a transient effect and revisiting the same record does not fabricate another reception
+PASS decorated questions disappear after use and repeated submission never charges twice
+PASS crossing an erosion band on an action triggers a crack reveal or visual recovery
+PASS decorative overlays cannot intercept touches; labels retain readable layers and large targets
+PASS player guidance now frames the game as observation and deduction
+
+
+verify-bitmap.cjs
+PASS actual alpha-image frames blend continuously through four stages and recover in reverse
+PASS per-point growth has no abrupt stage jump and composites at most two visible frames
+PASS image decode enables the bitmap and image failure retains the earlier visual fallback
+PASS measured erosion drives the actual frame opacity on every render
+PASS reduced effects and ending artwork suppress generated texture layers
+PASS disconnecting stops connection longing without pretending the existing infection is instantly healed
+PASS bitmap drawing cannot alter deduction evidence, saved answers, relationships, RNG or costs
+PASS shipped RGBA sprite atlas, four frame positions, slow transitions and central reading mask are wired to production CSS
+
+
+verify-cast.cjs
+PASS all six personal evidence records quote only dialogue actually spoken in the current encounter
+PASS six companion invitations and departures use distinct purposes and retain the original join/leave effects
+PASS 18 support exchanges distinguish medicine, food and shutdown while preserving consumption and state changes
+PASS meeting Haewon with or without Seojin addresses the actual people present and establishes the player memory loss
+PASS reverse-order sister meeting uses the known location and reunites both sisters instead of replaying the missing-person introduction
+PASS a later new run restores the ordinary introduction without leaking the previous run’s dynamic scene
+PASS Seojin reacts to Haewon’s presence and death instead of asking to find or contact her unconditionally
+PASS Suho’s later dialogue remembers whether he has already switched his terminal off
+PASS Yunseo’s testimony recalls the actual first call, separates later imitation and admits her own output change
+PASS natural dialogue preserves actual possession mismatches, high-erosion masking and immutable first records for all six NPCs
+PASS audio guidance responds to reported document contents without claiming remote sight
+PASS location prose changes after supplies, departures, power, drainage and shutdown rather than resetting the scene
+PASS all 33 ending texts remain mapped and unsafe-transfer consequences describe the actual signed choice
+PASS both bundle guards require the new narrative file and prevent a partial code upload from passing silently
+PASS all 11 rewritten terminal questions still route to their own topic and supply the facts heard by the operator
+PASS Nara’s responsibility dialogue does not leak into a new first encounter after restarting
+
+
+verify-delivery.cjs
+PASS all 33 endings have valid compact WebP files and bounded fallback paths
+PASS missing image tries each fallback once and hides broken image icon if all fail
+PASS old saved current authored dialogue refreshes once without replaying action, cost, RNG or relationship
+PASS randomly generated answers are not rerolled by dialogue migration
+PASS a mixed old/new upload produces a clear loading error instead of silently running stale dialogue
+PASS legacy input removed, question touch-target rules present, build visible, intro begins with the final two-page version
+
+
+verify-dialogue.cjs
+PASS initial terminal exchange uses left/right speech with visible text, rather than a name beside a rule
+PASS every actual Nara opening speech has both speaker and nonempty body in the correct bubble
+PASS wrist dialogue keeps its conversational opening and explains rest, calming down, and gradual erosion reduction
+PASS malformed empty speech never produces a speaker-only bubble
+PASS turning terminal off prevents use without instant healing; actual rest lowers erosion as the dialogue describes
+
+
+verify-identity.cjs
+PASS personal kit and actual first conversation are physically recorded
+PASS low erosion reveals a specific mismatch; two independent discrepancies support suspicion
+PASS high erosion makes false evidence seem ordinary without a hidden truth badge; repeats do not farm
+PASS reducing erosion permits new observations and retains the earlier misleading view plus unchanged original
+PASS turning off the terminal improves observation and permits explicit rechecking
+PASS injured human uncertainty is not counted as a lie
+PASS legacy saves do not invent first-contact possessions
+PASS external verification exposes evidence at high erosion; isolation changes companion and ending outcomes
+PASS comparison UI displays actual first/current contents and rendering does not reroll evidence
+ALL IDENTITY CHECKS PASSED
+
+
+verify-infection.cjs
+PASS actual mimic requires explicit warning and confirmation; bypassing pending confirmation fails; consequence saved
+PASS advanced companion erosion and independent warning cause outbreak even with clouded player perception
+PASS cancel then quarantine contains risk without world infection
+PASS normal human transfer is safe and completed actions disappear
+PASS sync threshold and pending confirmation survive save serialization
+PASS four infection bands reverse with recovery; reduction and endings clear effects; renders do not change RNG or turns
+PASS body panel does not reveal concealed companion erosion through a status label
+
+
+verify-nara.cjs
+PASS light-spill reason precedes offering; no forced acceptance; name is introduced
+PASS opening shows actual personal items in prose; first memory quotes were actually spoken; vague foldout removed
+PASS all three responses retain connection, record actual cloth owner, save consistently and do not repeat
+PASS past-broadcast conversation no longer handles a cloth already lent to player
+PASS all replay readings distinguish hiding light from distrust of previous guidance
+PASS Nara chapter now calls the common speech renderer and the vague foldout stays removed
+
+
+verify-opening.cjs
+PASS opening is an ordered scene; map cannot skip Nara
+PASS three responses resolve the encounter and permit exploration
+PASS relationship responses are saved once and cannot be repeated
+PASS cycle number alone grants neither recognition nor trust
+PASS three replay readings follow previous evidence; Nara has no automatic shared memory
+PASS an actually heard confession changes the next meeting
+PASS narration and speech keep chronological order without render duplicates
+PASS mid-conversation save preserves phase and replay reading
+ALL OPENING CHECKS PASSED
+
+
+verify-package.cjs
+PASS all packaged assets exist and match their checksums
+PASS every entry script, stylesheet and atlas probe resolves in the complete package
+PASS all runtime scripts belong to the same release
+
+
+verify.cjs
+PASS real map traversal sea route / epilogue
+PASS school route
+PASS drain route
+PASS rail route
+PASS identity / Haewon / human operator / offline escape
+PASS pharmacy treatment removes visual effects and never traps exit
+PASS completed choices hidden, unmet conditions remain
+PASS one movement graph / menu navigation free
+PASS clue-led questions / unknown input free / reply persists
+PASS high lie probability still allows truth
+PASS rejection cannot reroll by repeated click
+PASS departed ally moves, reunion identity persistent
+PASS NPC transformation / attack / survivable injury
+PASS player-only distortion and independent evidence recovery
+PASS terminal discard deletes digital records, keeps physical evidence
+PASS replay evidence, new room content and full truth unlock
+PASS global action cap removed
+PASS all 20 escape ending conditions
+PASS all 8 non-escape endings through actual choices
+PASS viewport and panel restore calls (mock DOM, not mobile browser)
+PASS event and identity save serialization
+PASS distinct location threat observation and second decision
+PASS authentic companion remains findable after mimic discrepancy
+PASS all NPC injury and mutation asset selectors
+PASS companion casualties retain record and leave party
+PASS companion treatment uses explicitly chosen supply
+PASS pharmacy regression across 20 saved RNG states
+PASS asset references and graph symmetry
+PASS third-run responsibility clue and question
+PASS separate-script reload preserves event phase, RNG and mimic identity
+PASS bootstrap readiness and versioned bundle links
+PASS desktop phone terminal is scoped independently from mobile menu
+PASS narration, action result and attributed speech are separated
+PASS ECHO reply appears only inside phone conversation
+PASS emergency stabilisation consumes supply and retains untreated injuries
+PASS recovered player can face a new synchronization crisis
+PASS exit investigation allows separation before final ending
+PASS action dialogue persists without duplicate records on render
+PASS two visible meters; internal probability never appears in replies
+PASS Nara responds to current action and skips unrelated filler
+PASS copied memories cannot solve identity alone; independent discrepancies combine
+PASS injured human memory uncertainty does not imply impersonation
+PASS early exploration can reach power station and forest without prescribed clue order
+PASS PC text-pane scroll preserved independently; new location resets reader (mock DOM)
+PASS failed escape explains its local cause and related evidence
+PASS secondary NPC testimony is attributed and stored as dialogue
+PASS four foreground creatures, blocked choices and observed escape routes
+PASS four monster-specific death endings through staged choices
+PASS caught player survives by losing an actual inventory item and keeps injury
+PASS empty-handed escape pays physical injury rather than granting a free item sacrifice
+PASS ally rescue leaves real damage and an injured portrait
+PASS arm injury restricts struggle while another survival response remains
+PASS erosion hand blocks engine and UI consistently; grounding restores choice
+PASS terminal shutdown immediately removes screen-grip interference
+PASS ECHO danger question uses current creature clues and leaves confrontation unresolved
+PASS first market creature appears reliably; revisit cooldown avoids repeated ambush
+PASS new dialogue animates once; repeated description is optional and result remains visible
+PASS mobile reader scroll independent of visible stage (mock DOM)
+PASS new monster assets and 33 unique ending IDs
+PASS ECHO questions sit by the input and hide with the phone
+PASS reload preserves caught phase and survival cost
+PASS prior 28-ending completion keeps unlocked truth after expansion
+PASS attacking mimic and synchronized player have visible foreground mutation images
+PASS variable cost/probability ranges draw once per answer and do not reroll in menus
+PASS no repeat penalty remains for unavailable repeat actions
+PASS probability range never promises 0 or 100 percent
+PASS raw source and claim readable without automatic judgment or reward
+PASS legacy verified replies show the original source without a verdict
+PASS first question receives a location answer; erosion lesson and changing personal references persist
+PASS discrepancy badge depends on observed facts, not hidden identity
+PASS monsters move on adjacent habitat paths; menu inspection does not move or reroll them
+PASS school creature can appear outside school with location-appropriate cues
+PASS location reports can be true or false, carry timestamps and remain claims
+PASS actual encounter can confirm a report without validating future location
+PASS PC question grid and plain terminal labels
+PASS location report is logged as a claim and can mark the map without moving player
+PASS save/reload keeps actor positions and report map marker
+PASS truthful reports do not present dead companions as currently roaming survivors
+PASS named creature questions and natural spoken location reports
+PASS unknown targets hidden from initial questions; helper identity query classified correctly
+PASS survivor contact must be read; creature position follows an actual sighting
+PASS both key types can be acquired in either order without repeating either pickup
+PASS legacy unscoped key completion does not hide the other room key
+PASS six authored introductions and optional follow-up conversations complete once
+PASS first question does not assume sibling knowledge; follow-ups require actual presence
+PASS generic rescue/reunion/inspection lines preserve NPC speech registers
+PASS observational prose is not player speech; inner thoughts have a separate section
+PASS explicit mobile monster bounds and separate hand/text regions exist (CSS inspection, not browser rendering)
+PASS early records hide identity and unordered forest entry does not invent prior knowledge
+PASS forest arrival text follows acquired evidence and destination remains unconfirmed
+PASS four creature survivals retain observed evidence without menu duplication
+PASS companion aftermath and saved encounter history; ending count unchanged
+PASS vocal mute, cooldown, priority and settings container (mock audio)
+PASS three bundled synthesized vocal WAV assets exist
+PASS voluntary companion shutdown changes future erosion and consumes the shared decision once
+PASS companion can refuse shutdown; continued contact increases synchronization
+PASS sharing or withholding evidence changes trust without asserting an unknown identity
+PASS testimony decisions persist into journal, save and ending recollection without adding endings
+PASS choice decoration follows actual restriction and distinct monster types
+PASS unlock/take transitions only on changed action state, never menu redraw or location change
+PASS switched-off companion device stays offline during player terminal questions
+PASS all 33 endings have valid scene assets and render ending artwork
+PASS ending gallery preserves actual companion portraits and saved context
+PASS gallery hides unseen artwork and legacy records do not invent companions
+PASS roaming monster ending uses actual location; ending prose avoids invented sacrifice or injury
+PASS staying, self-mutation and offline endings have their own visual treatment
+ALL CHECKS PASSED
+PASS Nara name is introduced before named attribution
+PASS answered question hidden in actual terminal; repeated submit consumes no turn
+PASS reunion wear is visible and cross-run comparison is separate
+PASS photograph reply stays within caption evidence and asks for identity confirmation
+
+
+{
+  "coverage": {
+    "locations": 13,
+    "people": 6,
+    "actions": 74,
+    "authoredLines": 141,
+    "clues": 23,
+    "endings": 33,
+    "guidance": 19
+  },
+  "total": 38,
+  "passed": 38,
+  "results": [
+    {
+      "id": "N01",
+      "issue": "나래에게 같은 이유를 연속 두 번 묻는 대사",
+      "passed": true
+    },
+    {
+      "id": "N02",
+      "issue": "수호의 이름 질문에 무관한 네로 시작하는 응답",
+      "passed": true
+    },
+    {
+      "id": "N03",
+      "issue": "해원 첫 대화의 연속된 주인공 발화",
+      "passed": true
+    },
+    {
+      "id": "N04",
+      "issue": "도윤 구조 과정에서 선반을 들어 올리는 행동 누락",
+      "passed": true
+    },
+    {
+      "id": "N05",
+      "issue": "사진 단서와 실제 조사 문장의 조개 정보 불일치",
+      "passed": true
+    },
+    {
+      "id": "N06",
+      "issue": "천으로 화면을 덮은 기억이 소음 차단으로 바뀜",
+      "passed": true
+    },
+    {
+      "id": "N07",
+      "issue": "물을 건네면서 동시에 단말기를 두 손으로 잡은 기억",
+      "passed": true
+    },
+    {
+      "id": "N08",
+      "issue": "윤서를 만나기만 해도 출력 증가를 증언한 것으로 기록",
+      "passed": true
+    },
+    {
+      "id": "N09",
+      "issue": "나래가 없어도 과거 방송 대화 가능",
+      "passed": true
+    },
+    {
+      "id": "N10",
+      "issue": "해원이 없어도 조개를 보여 달라고 대화 가능",
+      "passed": true
+    },
+    {
+      "id": "N11",
+      "issue": "윤서가 없어도 첫 안내와 녹음 문답 가능",
+      "passed": true
+    },
+    {
+      "id": "N12",
+      "issue": "서진 동행 중인데 해원이 언니도 왔냐고 질문",
+      "passed": true
+    },
+    {
+      "id": "N13",
+      "issue": "조개 조사에서 해원이 실제 행적을 말하지 않음",
+      "passed": true
+    },
+    {
+      "id": "N14",
+      "issue": "서진이 처음 설명하지 않은 조개의 소유 경위를 단정",
+      "passed": true
+    },
+    {
+      "id": "N15",
+      "issue": "원본을 묻는 장면에 실제 질문과 답변 누락",
+      "passed": true
+    },
+    {
+      "id": "N16",
+      "issue": "혼자 식량을 먹어도 같이 나눠 먹자고 발화",
+      "passed": true
+    },
+    {
+      "id": "N17",
+      "issue": "수호 동의 없이 모든 동료가 기계를 내려놓았다고 서술",
+      "passed": true
+    },
+    {
+      "id": "N18",
+      "issue": "배터리 꺼진 해원에게 접속 침식이 매 행동 증가",
+      "passed": true
+    },
+    {
+      "id": "N19",
+      "issue": "물품만 챙겨도 읽지 않은 치료 기록을 수첩에 보유",
+      "passed": true
+    },
+    {
+      "id": "N20",
+      "issue": "서진이 떠난 뒤 광장 묘사에 계속 등장",
+      "passed": true
+    },
+    {
+      "id": "N21",
+      "issue": "학교 위협을 벗어나도 복도에 같은 형체가 고정 묘사",
+      "passed": true
+    },
+    {
+      "id": "N22",
+      "issue": "윤서가 떠난 중계실에서 헤드폰 벗는 소리 반복",
+      "passed": true
+    },
+    {
+      "id": "N23",
+      "issue": "수첩 대화 기록에서 자기소개 전 실제 이름 노출",
+      "passed": true
+    },
+    {
+      "id": "N24",
+      "issue": "수첩 줄거리가 목적지 기록을 실제 도착으로 단정",
+      "passed": true
+    },
+    {
+      "id": "N25",
+      "issue": "관리소 메모가 원문에 없는 차단 결정을 증명",
+      "passed": true
+    },
+    {
+      "id": "N26",
+      "issue": "점검차 열쇠 없이 잠긴 차의 브레이크 정비",
+      "passed": true
+    },
+    {
+      "id": "N27",
+      "issue": "송신실 잔류 선택 직전에 아무 행동 묘사 없음",
+      "passed": true
+    },
+    {
+      "id": "N28",
+      "issue": "일곱 출구가 실제 이동 없이 같은 도착 문장 사용",
+      "passed": true
+    },
+    {
+      "id": "N29",
+      "issue": "윤서가 동행하지 않아도 윤서와 나왔다고 결말 단정",
+      "passed": true
+    },
+    {
+      "id": "N30",
+      "issue": "시야 회복 결말이 사진을 쓰지 않아도 사진 대조 단정",
+      "passed": true
+    },
+    {
+      "id": "N31",
+      "issue": "관찰 안 한 모방체 결말도 사전에 불일치를 외면했다고 단정",
+      "passed": true
+    },
+    {
+      "id": "N32",
+      "issue": "재회와 관찰만으로 행동을 통한 신뢰 회복을 결말에서 단정",
+      "passed": true
+    },
+    {
+      "id": "N33",
+      "issue": "영상 기능 없는 단말기에서 상대 손이 안 보인다고 말함",
+      "passed": true
+    },
+    {
+      "id": "N34",
+      "issue": "부하를 이미 분리했는데 미분리 감전 행동 재노출",
+      "passed": true
+    },
+    {
+      "id": "N35",
+      "issue": "배수 완료 뒤에도 물 찬 통로에 내려가는 사건 재노출",
+      "passed": true
+    },
+    {
+      "id": "N36",
+      "issue": "암초임을 알아도 붉은 불빛을 믿는다고 선택지에 서술",
+      "passed": true
+    },
+    {
+      "id": "N37",
+      "issue": "밸브만 열어도 통로가 다 드러나 펌프 필요성과 충돌",
+      "passed": true
+    },
+    {
+      "id": "N38",
+      "issue": "윤서 명찰을 봤다는 단서에 실제 관찰 장면 없음",
+      "passed": true
+    }
+  ]
+}

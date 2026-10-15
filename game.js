@@ -1,5 +1,5 @@
 'use strict';
-window.GlassBayFiles??={};window.GlassBayFiles['game.js']='5.22';
+window.GlassBayFiles??={};window.GlassBayFiles['game.js']='5.24';
 
 const SAVE='glass-bay-v5',INTRO='glass-bay-v5-intro';
 let meta={cycle:1,ends:[],knowledge:[],history:[],preferences:{reduce:false,sound:false,large:false}},state;

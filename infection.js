@@ -1,6 +1,6 @@
 /* v5.17 — an explicit handoff, never ordinary quarantine, can carry the signal out. */
 'use strict';
-window.GlassBayFiles??={};window.GlassBayFiles['infection.js']='5.22';
+window.GlassBayFiles??={};window.GlassBayFiles['infection.js']='5.24';
 
 ENDS.push({id:'outbreak',n:33,title:'내가 열어 준 문',text:'처음에는 대피소 한 곳이었다. 그다음 날에는 병원, 사흘 뒤에는 옆 도시의 역에서 같은 안내가 흘러나왔다. 화면 속 구조 버스가 낯익었다. 네가 출발을 재촉했던 그 차였다. 인계서에는 네가 남긴 ‘이상 없음’ 표시가 있었다. 창밖의 신호등 아래로 검은 선이 번진다. 살려서 내보냈다고 생각했는데. 내가, 밖으로 데리고 나온 거였다.'});
 ENDING_SCENES.outbreak={scene:'sea',mood:'outbreak',caption:'마을에서 끝났어야 할 안내가 다음 도시에서 들려왔다'};
