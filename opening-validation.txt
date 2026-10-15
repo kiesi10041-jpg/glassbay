@@ -1,0 +1,9 @@
+PASS opening is an ordered scene; map cannot skip Nara
+PASS three responses resolve the encounter and permit exploration
+PASS relationship responses are saved once and cannot be repeated
+PASS cycle number alone grants neither recognition nor trust
+PASS three replay readings follow previous evidence; Nara has no automatic shared memory
+PASS an actually heard confession changes the next meeting
+PASS narration and speech keep chronological order without render duplicates
+PASS mid-conversation save preserves phase and replay reading
+ALL OPENING CHECKS PASSED

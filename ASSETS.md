@@ -58,3 +58,33 @@ One isolated monstrous left forearm and hand reaching from the lower right corne
 
 ## v5.8 음성 효과
 assets/audio/breath.wav, gasp.wav, cry.wav: 24kHz mono PCM. 고정 난수 시드 417의 대역 통과 잡음과 호흡 포락선, 변조한 조화음 및 발성 대역 필터로 직접 합성. 외부 녹음·마이크·음성 API 사용 없음. 실제 사람 비명 녹음으로 표기하지 않음.
+
+## v5.9 선택지 그래픽
+기존 assets/monsters/hand.png, forest.png, market.png, water.png를 선택지 장식 레이어에서 재사용합니다. 체인·붕대·연결 단절·빈자리·기록 표시는 UI에 맞춘 코드 기반 SVG이며 새 AI 이미지로 표기하지 않습니다. 동작은 CSS 유한 애니메이션으로 구현했습니다.
+
+## v5.10 엔딩 배경
+기본 내장 이미지 생성 도구로 생성한 원본 PNG 8장. 게임 파일은 assets/endings에 보관하며 기존 인물·괴물 이미지와 CSS로 결말을 구성합니다. 최종 프롬프트:
+
+### assets/endings/sea.png
+A wide cinematic ending illustration for a Korean coastal psychological horror game. View from stern of an empty small rescue boat leaving a fog-covered village at pale dawn, wet coiled mooring rope foreground, distant white lighthouse signal, calm cold sea, restrained relief mixed with uncertainty. No people, no text, no lettering, no UI. Painterly photoreal survival horror concept art, desaturated slate blue with pale warm horizon. Landscape 3:2, complete composition, important details in center.
+
+### assets/endings/school.png
+Wide cinematic ending artwork, Korean abandoned seaside school emergency exit opening onto an exterior coastal evacuation path at dawn. A green lamp and a blue lamp above two closed heavy doors, numbered paper registration board with illegible marks foreground, damp concrete, distant sea visible beyond fence. No people, no legible text, no UI. Painterly realistic psychological horror, restrained muted teal and amber, landscape 3:2, space for character foreground.
+
+### assets/endings/drain.png
+Wide cinematic ending illustration, emerged from a dark drainage maintenance tunnel beneath a Korean coastal village, rusty ladder rises toward an open daylight hatch, wet ropes and receding water, pale dawn reflected in puddles. Relief after suffocation, no people, no text, no UI, painterly photoreal horror environment, cold slate blue amber daylight, landscape 3:2.
+
+### assets/endings/rail.png
+Wide ending artwork for Korean coastal horror game: an old yellow railway maintenance trolley has stopped outside a foggy tunnel at an abandoned outdoor repair siding, rails continue into pale morning, a folded illegible paper timetable on the trolley seat, no people, no text or lettering, painterly photoreal cinematic desaturated blue and ochre, landscape 3:2.
+
+### assets/endings/relay.png
+Wide cinematic psychological horror ending illustration: Korean coastal village radio relay room at night, empty chair beside a wired telephone and worn headset, one steady amber lamp illuminates handwritten illegible notes and a physical switchboard, fog outside small window, atmosphere of someone choosing to remain and answer the next call. No people, no text, no UI, painterly photoreal dark teal and amber, landscape 3:2.
+
+### assets/endings/refuge.png
+Wide cinematic ending background: small external coastal rescue triage shelter at dawn, two separate empty chairs, a translucent privacy curtain, warm desk lamp and dry blankets, cold sea through open door. Safety is real but trust remains uncertain. No people, no medical gore, no text, no UI. Painterly photoreal psychological horror, subdued warm ivory against slate blue, landscape 3:2.
+
+### assets/endings/evidence.png
+Wide cinematic ending illustration for a psychological horror mystery: dry rescue-station desk with a reel-to-reel tape, battered work ID card face down, sealed evidence envelopes, handwritten notebook with illegible lines, rain-streaked window revealing a distant foggy coastal village and dawn. No readable names, no people, no UI, no lettering. Painterly realistic, muted blue and warm amber light, landscape 3:2.
+
+### assets/endings/forest.png
+Wide cinematic horror ending artwork: narrow forestry maintenance path emerges from dark Korean coastal pine forest into pale sunrise near a weathered utility shed, wet yellow medicine envelope on wooden sill, small seashell beside it, power cable running along path to distant village. No people, no text, no UI. Melancholy but hopeful painterly photoreal environment, desaturated pine green and pale amber, landscape 3:2.

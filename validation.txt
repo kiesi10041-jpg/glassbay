@@ -99,4 +99,13 @@ PASS testimony decisions persist into journal, save and ending recollection with
 PASS choice decoration follows actual restriction and distinct monster types
 PASS unlock/take transitions only on changed action state, never menu redraw or location change
 PASS switched-off companion device stays offline during player terminal questions
+PASS all 32 endings have valid scene assets and render ending artwork
+PASS ending gallery preserves actual companion portraits and saved context
+PASS gallery hides unseen artwork and legacy records do not invent companions
+PASS roaming monster ending uses actual location; ending prose avoids invented sacrifice or injury
+PASS staying, self-mutation and offline endings have their own visual treatment
 ALL CHECKS PASSED
+PASS Nara name is introduced before named attribution
+PASS answered question hidden in actual terminal; repeated submit consumes no turn
+PASS reunion wear is visible and cross-run comparison is separate
+PASS photograph reply stays within caption evidence and asks for identity confirmation

@@ -1,0 +1,45 @@
+// Runs the same editorial continuity checks against either version.
+const path=require('path');if(process.argv[2])process.chdir(process.argv[2]);
+const bootstrap=require('fs').readFileSync('verify.cjs','utf8').split('boot();power();')[0];
+const checks=[
+ ['N01','나래에게 같은 이유를 연속 두 번 묻는 대사',()=>run("INTRO_SCENES.나래.dialogue.filter(l=>l.who==='나'&&/왜.*가리는/.test(l.text)).length<=1")],
+ ['N02','수호의 이름 질문에 무관한 네로 시작하는 응답',()=>run("INTRO_SCENES.수호.dialogue.some(l=>l.who==='수호'&&l.text.includes('수호라고'))&&!INTRO_SCENES.수호.dialogue.some(l=>l.text.startsWith('네. 물이'))")],
+ ['N03','해원 첫 대화의 연속된 주인공 발화',()=>run("INTRO_SCENES.해원.dialogue.every((l,i,ls)=>!i||l.who!==ls[i-1].who)")],
+ ['N04','도윤 구조 과정에서 선반을 들어 올리는 행동 누락',()=>run("ACTIONS.school.find(a=>a.id==='doyun').text.includes('선반을 들어 올리')")],
+ ['N05','사진 단서와 실제 조사 문장의 조개 정보 불일치',()=>run("CLUES.photo.text.includes('손바닥')&&CLUES.photo.text.includes('조개')&&!CLUES.photo.text.includes('봉투 안')")],
+ ['N06','천으로 화면을 덮은 기억이 소음 차단으로 바뀜',()=>run("!PEOPLE.나래.memory.includes('소리를 줄이')&&PEOPLE.나래.memory.includes('덮')")],
+ ['N07','물을 건네면서 동시에 단말기를 두 손으로 잡은 기억',()=>run("PEOPLE.수호.memory.includes('건네고 나서')")],
+ ['N08','윤서를 만나기만 해도 출력 증가를 증언한 것으로 기록',()=>run("!CLUES.confession.text.includes('출력을 높였다고 말')&&CLUES.confession.text.includes('대조해야')")],
+ ['N09','나래가 없어도 과거 방송 대화 가능',()=>run("ACTIONS.ward.find(a=>a.id==='naraPast').needHere==='나래'")],
+ ['N10','해원이 없어도 조개를 보여 달라고 대화 가능',()=>run("ACTIONS.forest.find(a=>a.id==='shell').needHere==='해원'")],
+ ['N11','윤서가 없어도 첫 안내와 녹음 문답 가능',()=>run("ACTIONS.relay.find(a=>a.id==='operatorProof').needHere==='윤서'")],
+ ['N12','서진 동행 중인데 해원이 언니도 왔냐고 질문',()=>{run("state.loc='forest';state.items.keeperKey=1;state.party=['서진'];state.met=['서진'];state.npc.서진.status='party';state.npc.서진.location='forest';state.cooldown=999;choose('haewon')");return run("state.output.lines.some(l=>l.who==='해원'&&l.text.includes('언니!'))") }],
+ ['N13','조개 조사에서 해원이 실제 행적을 말하지 않음',()=>run("ACTIONS.forest.find(a=>a.id==='shell').dialogue?.some(l=>l.who==='해원'&&l.text.includes('학교에서')&&l.text.includes('약'))")],
+ ['N14','서진이 처음 설명하지 않은 조개의 소유 경위를 단정',()=>{run("state.met=['서진'];output()");return !run("npcResponse('서진',{id:'shell'}).includes('내가 주운')") }],
+ ['N15','원본을 묻는 장면에 실제 질문과 답변 누락',()=>run("ACTIONS.relay.find(a=>a.id==='operatorProof').dialogue?.some(l=>l.who==='윤서'&&l.text.includes('멈췄어야')||l.who==='윤서'&&l.text.includes('기다리면 될 줄'))")],
+ ['N16','혼자 식량을 먹어도 같이 나눠 먹자고 발화',()=>{run("state.items.food=1;state.cooldown=999;useItem('food')");return !run("state.output.lines.some(l=>l.text.includes('같이 나눠'))") }],
+ ['N17','수호 동의 없이 모든 동료가 기계를 내려놓았다고 서술',()=>run("!ACTIONS.market.find(a=>a.id==='rest').text.includes('동료들도 자기 기계')")],
+ ['N18','배터리 꺼진 해원에게 접속 침식이 매 행동 증가',()=>{run("state.met=['해원'];state.npc.해원.status='available';const beforeSync=state.npc.해원.sync;tickNPC();globalThis.syncUnchanged=state.npc.해원.sync===beforeSync");return run('syncUnchanged')}],
+ ['N19','물품만 챙겨도 읽지 않은 치료 기록을 수첩에 보유',()=>{run("state.loc='clinic';state.done=['meds']");return run("placeDescription().includes('아직 읽지 않은')") }],
+ ['N20','서진이 떠난 뒤 광장 묘사에 계속 등장',()=>{run("state.loc='square';state.met=['서진'];state.npc.서진.location='school';state.npc.서진.status='away'");return !run("placeDescription().includes('여자가 지나가는 사람')") }],
+ ['N21','학교 위협을 벗어나도 복도에 같은 형체가 고정 묘사',()=>{run("state.loc='school';state.eventsSeen=['schoolThreat']");return !run("placeDescription().includes('형체가 서 있다')") }],
+ ['N22','윤서가 떠난 중계실에서 헤드폰 벗는 소리 반복',()=>{run("state.loc='relay';state.met=['윤서'];state.npc.윤서.location='hall'");return !run("placeDescription().includes('헤드폰을 벗는 소리')") }],
+ ['N23','수첩 대화 기록에서 자기소개 전 실제 이름 노출',()=>{run("state.transcript=[{who:'해원',speaker:'노란 우비의 여자',text:'다시 오셨네요.',kind:'speech'}];renderBook('summary')");return run("document.getElementById('panelScroll').innerHTML.includes('노란 우비의 여자')") }],
+ ['N24','수첩 줄거리가 목적지 기록을 실제 도착으로 단정',()=>{run("state.clues=['schoolTrail'];renderBook('summary')");return run("document.getElementById('panelScroll').innerHTML.includes('실제 도착 여부는 현장에서')") }],
+ ['N25','관리소 메모가 원문에 없는 차단 결정을 증명',()=>run("ACTIONS.forest.find(a=>a.id==='forestMemo').text.includes('이 메모만으로')")],
+ ['N26','점검차 열쇠 없이 잠긴 차의 브레이크 정비',()=>run("ACTIONS.station.find(a=>a.id==='railFix').needItem==='rail'")],
+ ['N27','송신실 잔류 선택 직전에 아무 행동 묘사 없음',()=>run("ACTIONS.relay.find(a=>a.id==='stay').text?.includes('수화기')")],
+ ['N28','일곱 출구가 실제 이동 없이 같은 도착 문장 사용',()=>{run("state.loc='pier';state.items={fuel:1,battery:1};state.clues=['tide','beacon','power'];startEscape('sea')");return run("state.output.text.includes('계류줄')&&state.output.text.includes('방파제')") }],
+ ['N29','윤서가 동행하지 않아도 윤서와 나왔다고 결말 단정',()=>run("!ENDS.find(e=>e.id==='operator').text.includes('응답자와 나왔다')")],
+ ['N30','시야 회복 결말이 사진을 쓰지 않아도 사진 대조 단정',()=>run("ENDS.find(e=>e.id==='trueSight').text.includes('연결을 끊거나')")],
+ ['N31','관찰 안 한 모방체 결말도 사전에 불일치를 외면했다고 단정',()=>run("ENDS.find(e=>e.id==='mimic').text.includes('확인하지 못했거나')")],
+ ['N32','재회와 관찰만으로 행동을 통한 신뢰 회복을 결말에서 단정',()=>run("ENDS.find(e=>e.id==='reconcile').text.includes('그 뒤에도 서로 확인')")],
+ ['N33','영상 기능 없는 단말기에서 상대 손이 안 보인다고 말함',()=>!run("ask.toString().includes('당신 손이 화면에서')")&&!require('fs').readFileSync('game.js','utf8').includes('당신 손이 화면에서 잘 안 보여요')],
+ ['N34','부하를 이미 분리했는데 미분리 감전 행동 재노출',()=>{run("state.loc='substation';flag('powerStart')");return !run("actions().some(a=>a.id==='powerWrong')")}],
+ ['N35','배수 완료 뒤에도 물 찬 통로에 내려가는 사건 재노출',()=>{run("state.loc='reservoir';state.clues=['pump']");return !run("actions().some(a=>a.id==='drainUnsafe')")}],
+ ['N36','암초임을 알아도 붉은 불빛을 믿는다고 선택지에 서술',()=>{run("state.loc='pier';state.clues=['tide']");return run("actions().find(a=>a.id==='redEscape').label.includes('암초 경고임을 알면서도')")}],
+ ['N37','밸브만 열어도 통로가 다 드러나 펌프 필요성과 충돌',()=>run("ACTIONS.reservoir.find(a=>a.id==='lowValve').text.includes('아직 통로 전체가 드러나지는')")],
+ ['N38','윤서 명찰을 봤다는 단서에 실제 관찰 장면 없음',()=>run("INTRO_SCENES.윤서.text.includes('작업 명찰')")]
+];
+const suffix=`\nconst results=checks.map(([id,issue,test])=>{reset();let passed=false,error=null;try{passed=!!test()}catch(e){error=e.message}return{id,issue,passed,...(error?{error}:{})}});console.log(JSON.stringify({coverage:run("({locations:Object.keys(WORLD).length,people:Object.keys(PEOPLE).length,actions:Object.values(ACTIONS).flat().length,authoredLines:Object.values(ACTIONS).flat().reduce((n,a)=>n+(a.dialogue?.length||0),0),clues:Object.keys(CLUES).length,endings:ENDS.length,guidance:Object.keys(GUIDANCE).length})"),total:results.length,passed:results.filter(x=>x.passed).length,results},null,2));`;
+eval(bootstrap+'\n'+checks.map(()=> '').join('')+suffix);

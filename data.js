@@ -58,7 +58,7 @@ const ACTIONS={
  lighthouse:[A('beacon','수위표와 흰 신호의 간격을 대조한다',{needClue:'tide',clue:'beacon',text:'흰색 세 번, 긴 점멸 한 번. 표지와 실제 빛이 일치한다.'}),A('mirror','정비 서랍에서 반사판을 꺼낸다',{gain:['mirror'],physical:'arm',text:'네 목소리를 내보내지 않고도 구조선을 부를 수 있다.'}),A('lightEscape','반사판으로 외부 구조선을 부른다',{escape:'light',repeat:true})],
  market:[A('food','생수와 식량을 챙긴다',{gain:['food','food'],text:'최근에 누군가 봉투를 열었다. 물병에는 아직 온기가 없다.'}),A('medical','의료 가방에서 구급상자와 필터를 챙긴다',{gain:['med','filter'],text:'치료 물품은 한정되어 있다. 필터는 단말기 신호를 줄이고, 구급상자는 몸을 치료한다.'}),A('rest','불 꺼진 가게에서 잠깐 쉰다',{effect:'rest',text:'화면에서 시선을 떼고 소리에 집중한다. 동료들도 자기 기계를 내려놓는다.'})],
  substation:[A('powerStart','점검판을 읽고 부하를 분리한다',{effect:'powerStart',text:'램프가 꺼진다. 다음은 우회선을 연결하는 단계다.'}),A('powerBypass','우회선을 연결한다',{needFlag:'powerStart',effect:'powerBypass',physical:'arm',text:'대피 회로로 전류를 보낼 준비가 됐다.'}),A('powerFinish','대피 전원을 연결하고 점검 표찰을 챙긴다',{needFlag:'powerBypass',clue:'power',physical:'arm',text:'순서대로 연결하자 전원이 안정된다. 학교 문과 배수 펌프를 사용할 수 있다.'}),A('powerWrong','부하를 끊지 않고 전원을 연결한다',{effect:'shock',cost:'감전 위험'})],
- reservoir:[A('lowValve','낮은 밸브를 열어 수위를 줄인다',{physical:'arm',effect:'lowValve',text:'물이 빠지며 바닥의 점검 통로가 보인다.'}),A('pump','승인된 전원으로 펌프를 켠다',{needFlag:'lowValve',needClue:'power',clue:'pump',text:'물살이 멎는다. 중계실의 열쇠로 아래 방수문을 열 수 있다.'}),A('drainUnsafe','물 아래 문을 확인하지 않고 내려간다',{effect:'drownRisk',cost:'수위 미확인 위험'}),A('drainEscape','점검 통로로 탈출을 시도한다',{escape:'drain',repeat:true})],
+ reservoir:[A('lowValve','낮은 밸브를 열어 수위를 줄인다',{physical:'arm',effect:'lowValve',text:'밸브를 열자 수위계의 바늘이 조금 내려간다. 아직 통로 전체가 드러나지는 않았다. 펌프 전원을 확인해야 한다.'}),A('pump','승인된 전원으로 펌프를 켠다',{needFlag:'lowValve',needClue:'power',clue:'pump',text:'물살이 멎는다. 중계실의 열쇠로 아래 방수문을 열 수 있다.'}),A('drainUnsafe','물 아래 문을 확인하지 않고 내려간다',{effect:'drownRisk',cost:'수위 미확인 위험'}),A('drainEscape','점검 통로로 탈출을 시도한다',{escape:'drain',repeat:true})],
  station:[A('rail','점검차의 열쇠와 배차표를 챙긴다',{gain:['rail'],clue:'tickets',text:'바깥 정비 터널은 대피 방송과 별개다. 수동 브레이크와 전력이 필요하다.'}),A('victim','발자국 없는 승객을 멀리서 관찰한다',{clue:'footprint',effect:'victim',text:'“여기가 출구라고 했어.” 승객은 같은 말을 반복한다. 팔과 고개는 방송에 맞춰 서로 다른 박자로 움직인다. 그 화면에는 붉은 항로가 떠 있다.'}),A('railFix','점검차 브레이크를 정비한다',{physical:'arm',effect:'railFix',text:'손잡이가 걸리지 않고 돌아간다. 철로는 바깥 정비소로 이어진다.'}),A('railEscape','점검차로 탈출을 시도한다',{escape:'rail',repeat:true})],
  forest:[A('haewon','약 봉투를 따라 관리소를 연다',{needItem:'keeperKey',npc:'해원',clue:'forestNote',text:'해원은 부상자를 돌보며 네가 돌아오기를 기다렸다. 그녀의 기계는 꺼져 있다. “선을 만지지 말고 약만 가져오라고 했잖아요. 기억이 안 나요?”'}),A('shell','해원에게 봉투 안의 조개를 보여 달라고 한다',{needMet:'해원',needClue:'photo',effect:'haewonProof',text:'사진에서 본 작은 조개가 나온다. “언니에게 주려고요.” 해원은 학교에서 네가 보지 못했던 일을 순서대로 설명한다.'}),A('forestMemo','관리소 책상의 마지막 작업 메모를 읽는다',{clue:'forestNote',needItem:'keeperKey',text:'메모에는 네가 중계실로 돌아가 통신을 끊으려 했다고 적혀 있다.'}),A('forestExit','관리소 뒤 외부 점검길을 확인한다',{cycle:2,escape:'forest',repeat:true})],
  relay:[A('identity','원본 작업 카드와 서명을 대조한다',{clue:'identity',needClue:'job',needClue2:'photo',text:'작업 카드의 사진, 손목 번호, 회관 서명이 맞아떨어진다. 네 이름은 이현이다. 통신 점검을 위해 이 마을에 들어왔다.'}),A('tape','잘리지 않은 원본 녹음을 듣는다',{clue:'original',physical:'hearing',text:'“출력을 낮춰요. 다른 장치가 목소리를 가져가고 있어요.” 녹음 속 네 말 뒤에 윤서의 대답이 남았다. 네 목소리를 흉내 낸 방송은 그 뒤에 시작됐다.'}),A('key','아래 점검문 열쇠를 챙긴다',{gain:['key'],text:'방수문은 저류조로 이어진다.'}),A('operator','벽 너머의 응답자와 직접 만난다',{needClue:'identity',npc:'윤서',clue:'confession',text:'헤드폰을 쓴 여자가 손목 붕대를 감으며 나온다. “윤서예요. 처음에 문을 잠그라고 한 사람.” 그녀는 네 기억이 돌아왔는지 먼저 묻는다.'}),A('operatorProof','첫 안내와 원본 녹음의 일을 윤서에게 묻는다',{needMet:'윤서',needClue:'original',effect:'operatorProof',text:'윤서는 첫 안내의 손목 번호와 점검문의 위치를 기억한다. 출력 증가도 인정한다. 숨긴 사실은 있었지만 원본의 목소리와 행동은 맞아떨어진다.'}),A('echoCut','외부 연락을 확보한 뒤 마을 송신을 끊는다',{needClue:'original',needFlag:'operatorProof',effect:'echoCut',text:'통신은 구조 거점의 유선 회선으로 넘어간다. 지금부터 단말기를 꺼도 외부에서 너희의 위치를 알 수 있다.'}),A('operatorEscape','윤서와 외부 정비 터널로 나간다',{escape:'operator',repeat:true}),A('stay','남아 있는 사람을 위해 송신실에 남는다',{effect:'stay',needFlag:'operatorProof'})]
@@ -118,12 +118,12 @@ PEOPLE.서진.memory='학교 체육관 앞에서 해원을 마지막으로 봤�
 
 // v5.6: authored conversation beats, not independently concatenated introductory lines.
 const INTRO_SCENES={
- 서진:{text:'여자는 광장 쪽을 몇 번이나 돌아본다. 접어 둔 종이를 손에서 놓지 않는다.',dialogue:[{who:'나',text:'누굴 찾고 계세요?'},{who:'서진',text:'서진이라고 해요. 동생 해원을 찾고 있어요. 학교 체육관 앞에서 마지막으로 봤어요.'},{who:'서진',text:'기계는 밖으로 나갔다는데 연락이 없어요. 정말 나간 거면 제 연락에도 답했을 텐데.'}]},
+ 서진:{text:'여자는 광장 쪽을 몇 번이나 돌아본다. 접어 둔 종이를 손에서 놓지 않는다.',dialogue:[{who:'나',text:'누굴 찾고 계세요? 저는 이름이 기억나지 않아요. 어떻게 불러 드리면 될까요?'},{who:'서진',text:'서진이라고 해요. 동생 해원을 찾고 있어요. 학교 체육관 앞에서 마지막으로 봤어요.'},{who:'서진',text:'기계는 밖으로 나갔다는데 연락이 없어요. 정말 나간 거면 제 연락에도 답했을 텐데.'}]},
  도윤:{text:'선반이 들리자 남자는 먼저 다친 손을 품에 넣는다. 잠깐 숨을 고른 뒤 몸을 일으킨다.',dialogue:[{who:'나',text:'천천히 나오세요. 손을 다쳤어요?'},{who:'도윤',text:'조금요. 괜찮… 아니, 혼자서는 못 나왔을 거예요. 고맙습니다. 도윤이에요.'}]},
- 나래:{text:'여자가 회색 천으로 단말기 화면을 덮는다. 천을 잡은 손목에는 희미한 검은 자국이 있다.',dialogue:[{who:'나',text:'왜 가리는 거예요?'},{who:'나래',text:'잠깐만 내려놔. 방금 문 안 열었지? 그 소리에 대답한 사람은 돌아오지 않았어.'},{who:'나래',text:'나래야. 저 기계가 도움이 될 때도 있어. 그래서 끄기가 더 어렵지.'}]},
- 수호:{text:'남자가 종이컵을 내민다. 다른 손은 단말기를 꼭 쥐고 있다.',dialogue:[{who:'나',text:'혼자 계셨나요?'},{who:'수호',text:'네. 물이 찼을 때 이 목소리가 사다리 위치를 알려 줬어요. 수호라고 해요.'},{who:'수호',text:'그 뒤로는 끄기가 무서워요. 또 물이 차면 누구 말을 들어야 하죠?'}]},
- 해원:{text:'노란 우비를 입은 여자가 의자에서 일어난다. 네 작업복을 보고 멈칫한다.',dialogue:[{who:'해원',text:'다시 오셨네요. 언니도 같이 왔어요?'},{who:'나',text:'미안해요. 여기 왔던 일이 기억나지 않아요.'},{who:'해원',text:'저는 해원이에요. 여기서 언니를 기다리라고 메모를 남기고 가셨잖아요.'}]},
- 윤서:{text:'헤드폰을 쓴 여자가 벽 너머에서 나온다. 너를 보더니 붕대를 감던 손을 멈춘다.',dialogue:[{who:'윤서',text:'윤서예요. 처음에 문을 잠그라고 한 사람.'},{who:'나',text:'계속 당신이 대답한 건가요?'},{who:'윤서',text:'처음에는요. 그 뒤에 제 목소리로 나간 말 중에는 제가 하지 않은 것도 있어요.'}]}
+ 나래:{text:'여자가 회색 천으로 단말기 화면을 덮는다. 천을 잡은 손목에는 희미한 검은 자국이 있다.',dialogue:[{who:'나',text:'왜 가리는 거예요?'},{who:'나래',text:'잠깐만 내려놔. 방금 문 안 열었지? 그 소리에 대답한 사람은 돌아오지 않았어.'},{who:'나',text:'잠깐만요. 누구세요? 왜 내 단말기를 가리는 거예요?'},{who:'나래',text:'나래야. 이 마을에서 대피 방송을 했어. 그 기계 말을 믿고 사람들을 잘못 보낸 적이 있어.'},{who:'나',text:'방금은 저를 살려 줬어요. 무조건 끄라는 말인가요?'},{who:'나래',text:'아니. 도움이 될 때도 있으니까 더 어렵지. 들은 말과 네가 직접 본 걸 따로 적어 둬.'}]},
+ 수호:{text:'남자가 손잡이 있는 낡은 금속 컵을 내민다. 다른 손은 단말기를 꼭 쥐고 있다.',dialogue:[{who:'나',text:'물 고마워요. 어떻게 불러 드리면 될까요?'},{who:'수호',text:'네. 물이 찼을 때 이 목소리가 사다리 위치를 알려 줬어요. 수호라고 해요.'},{who:'수호',text:'그 뒤로는 끄기가 무서워요. 또 물이 차면 누구 말을 들어야 하죠?'}]},
+ 해원:{text:'노란 우비를 입은 여자가 의자에서 일어난다. 네 작업복을 보고 멈칫한다.',dialogue:[{who:'해원',text:'다시 오셨네요. 언니도 같이 왔어요?'},{who:'나',text:'저를 아세요? 먼저 이름을 알려 주실래요?'},{who:'나',text:'미안해요. 여기 왔던 일이 기억나지 않아요.'},{who:'해원',text:'저는 해원이에요. 여기서 언니를 기다리라고 메모를 남기고 가셨잖아요.'}]},
+ 윤서:{text:'헤드폰을 쓴 여자가 벽 너머에서 나온다. 가슴의 작업 명찰에는 통신 작업반 윤서라고 적혀 있다. 너를 보더니 붕대를 감던 손을 멈춘다.',dialogue:[{who:'나',text:'누구세요? 단말기에서 들었던 목소리 같은데요.'},{who:'윤서',text:'윤서예요. 처음에 문을 잠그라고 한 사람.'},{who:'나',text:'계속 당신이 대답한 건가요?'},{who:'윤서',text:'처음에는요. 그 뒤에 제 목소리로 나간 말 중에는 제가 하지 않은 것도 있어요.'}]}
 };
 for(const list of Object.values(ACTIONS))for(const a of list)if(a.npc&&INTRO_SCENES[a.npc]){a.text=INTRO_SCENES[a.npc].text;a.dialogue=INTRO_SCENES[a.npc].dialogue;delete a.say;}
 ACTIONS.ward.push(A('naraSymptoms','나래에게 손목의 검은 자국을 묻는다',{needHere:'나래',knowledge:'erosionExplained',text:'나래는 천을 쥔 손을 내려다본다.',dialogue:[{who:'나',text:'손목은 왜 그렇게 됐어요?'},{who:'나래',text:'기계를 오래 쓰고 나서 번졌어. 여기선 침식이라고 불러. 상처랑 달라. 약을 써도 그대로였거든.'},{who:'나',text:'줄일 방법은 없어요?'},{who:'나래',text:'꺼두고 쉬면 덜해져. 차폐 필터도 써 봤고. 이상하게 보이는 사람이 있으면 바로 덤비지 마. 내 눈이 틀렸을 때도 있었어.'}]}));
@@ -151,3 +151,134 @@ const revisionText={
 for(const list of Object.values(ACTIONS))for(const a of list)if(revisionText[a.id])a.text=revisionText[a.id];
 CLUES.rules.text='학교 비상문은 해안 외부 대피 통로로 이어진다. 녹색은 한 명, 청색은 회관에서 확인한 동행자 전원. 이름 대신 번호를 입력한다.';
 CLUES.schoolTrail.text='학교 자리표에는 해원이 약 전달을 위해 잠시 나갔다고 적혀 있다. 노란 봉투의 목적지는 숲 관리소다. 실제 도착 여부는 확인하지 못했다.';
+
+// Choices about people and testimony share the same world as survival.
+ACTIONS.hall.push(
+ A('suhoQuiet','수호 곁에서 단말기를 잠깐 꺼 보자고 한다',{needHere:'수호',knownNpc:'수호',decisionGroup:'suhoConnection',effect:'suhoQuiet',text:'수호의 엄지가 전원 버튼 위를 맴돈다. 네가 옆자리에 앉자 화면에서 눈을 뗀다.',dialogue:[{who:'나',text:'내가 옆에 있을게요. 잠깐만 꺼 보고 몸이 달라지는지 확인해요.'}]}),
+ A('suhoListen','수호가 계속 연락을 받도록 두고 옆에서 지켜본다',{needHere:'수호',knownNpc:'수호',decisionGroup:'suhoConnection',effect:'suhoListen',text:'수호는 단말기를 내려놓지 않는다. 네가 대답을 기다리는 동안 화면에 새 안내가 뜬다.',dialogue:[{who:'나',text:'지금 당장 끄라고 하진 않을게요. 대신 무슨 말을 들었는지 나에게도 알려 줘요.'}]})
+);
+ACTIONS.square.push(
+ A('shareTrail','서진에게 약 봉투에 적힌 목적지를 알려 준다',{needHere:'서진',knownNpc:'서진',needClue:'schoolTrail',decisionGroup:'seojinTruth',effect:'shareTrail',text:'서진에게 학교에서 찾은 봉투와 자리표를 펼쳐 보인다.',dialogue:[{who:'나',text:'학교에서 찾은 약 봉투예요. 목적지는 관리소라고 적혀 있어요. 기록과 직접 본 일을 나눠서 말씀드릴게요.'}]}),
+ A('holdTrail','해원을 직접 확인할 때까지 서진에게 목적지를 말하지 않는다',{needHere:'서진',knownNpc:'서진',needClue:'schoolTrail',decisionGroup:'seojinTruth',effect:'holdTrail',text:'봉투를 접어 넣는다. 잘못된 희망을 주고 싶지 않지만, 서진은 네 손을 보고 있다.',dialogue:[{who:'나',text:'아직 확인할 게 있어요. 확실해지면 이야기할게요.'}]})
+);
+ACTIONS.relay.push(
+ A('keepTestimony','윤서의 증언을 원본 녹음과 함께 기록한다',{needHere:'윤서',knownNpc:'윤서',needFlag:'operatorProof',needClue:'original',decisionGroup:'operatorRecord',effect:'keepTestimony',text:'출력을 높인 시각과 중단 요청을 종이에 나란히 적는다. 윤서가 적힌 시간을 한 번씩 확인한다.',dialogue:[{who:'나',text:'사람을 구하려고 했다는 말도, 위험을 알면서 기다렸다는 말도 함께 남길게요.'}]}),
+ A('deferTestimony','윤서의 잘못을 기록하는 일은 지금 미룬다',{needHere:'윤서',knownNpc:'윤서',needFlag:'operatorProof',needClue:'original',decisionGroup:'operatorRecord',effect:'deferTestimony',text:'펜을 내려놓는다. 윤서는 변명하려다 말을 멈춘다. 원본 테이프는 그대로 있다.',dialogue:[{who:'나',text:'지금은 남은 사람부터 확인해요. 이 이야기를 없던 일로 하겠다는 뜻은 아니에요.'}]})
+);
+for(const list of Object.values(ACTIONS))for(const a of list){const costs={suhoQuiet:'동의 여부에 따라 연결 중단 · 관계 변화',suhoListen:'관계 상승 · 수호의 침식 증가',shareTrail:'확인한 기록 공유 · 서진의 신뢰 변화',holdTrail:'정보 보류 · 서진의 신뢰 변화',keepTestimony:'실물 증언 보존 · 윤서와 긴장',deferTestimony:'증언 정리 보류 · 원본은 유지'};if(costs[a.id])a.cost=costs[a.id];}
+
+const ENDING_SCENES={
+ sea:{scene:'sea',mood:'dawn',caption:'안개 바깥으로 이어지는 흰 불빛'},seaTogether:{scene:'sea',mood:'dawn',cast:'party',caption:'같은 배에 오른 사람들'},
+ schoolSolo:{scene:'school',mood:'quiet',caption:'한 사람을 통과시킨 문'},schoolTogether:{scene:'school',mood:'dawn',cast:'party',caption:'현재 함께 있는 번호로 다시 쓴 명부'},
+ drain:{scene:'drain',mood:'quiet',caption:'물이 빠진 통로 끝의 빛'},drainTogether:{scene:'drain',mood:'dawn',cast:'party',caption:'마지막 사다리를 함께 지난 뒤'},
+ rail:{scene:'rail',mood:'quiet',caption:'방송 대신 종이에 남아 있던 행선지'},light:{scene:'sea',mood:'signal',object:'mirror',caption:'목소리 없이 전한 빛'},
+ forest:{scene:'forest',mood:'dawn',caption:'관리소 뒤로 이어지는 길'},operator:{scene:'relay',mood:'dawn',cast:'operator',caption:'목소리 너머에 있던 사람'},
+ dark:{scene:'refuge',mood:'offline',object:'phone',caption:'화면을 끈 뒤에도 남아 있는 세계'},earned:{scene:'evidence',mood:'dawn',caption:'맞지 않던 말들을 끝까지 확인했다'},
+ trueSight:{scene:'refuge',mood:'clear',cast:'party',caption:'내 시야와 다른 흔적을 함께 본 사람'},falseSight:{scene:'refuge',mood:'distorted',cast:'party',caption:'안전한 곳에서도 그림자가 겹친다'},
+ mimic:{scene:'refuge',mood:'double',cast:'mimic',caption:'같은 얼굴이 다른 기억을 말한다'},changedCompanion:{scene:'refuge',mood:'mutation',cast:'changed',caption:'변화는 경계 밖에서도 멈추지 않았다'},
+ changedSelf:{scene:'refuge',mood:'mutation',cast:'self',caption:'살아 나왔지만 몸은 돌아오지 않았다'},haewon:{scene:'forest',mood:'dawn',cast:'sisters',caption:'완료 표시 뒤에 남아 있던 사람'},
+ reconcile:{scene:'refuge',mood:'warm',cast:'rejoined',caption:'헤어진 뒤 다시 선택한 동행'},disclosure:{scene:'evidence',mood:'clear',caption:'의도와 피해를 함께 남긴 기록'},
+ stay:{scene:'relay',mood:'amber',caption:'다음 연락을 받기 위해 남겨 둔 자리'},name:{scene:'school',mood:'dark',caption:'여러 문 뒤에서 같은 이름이 대답한다'},
+ reef:{scene:'sea',mood:'red',caption:'구조 신호가 아니었던 붉은 불빛'},caught:{scene:'school',mood:'dark',monster:'school',caption:'손잡이에 닿기 전에 멎은 발소리'},
+ drowned:{scene:'drain',mood:'submerged',caption:'빛보다 먼저 올라온 물'},signal:{scene:'relay',mood:'static',cast:'self',caption:'다음 사람을 맞는 익숙한 목소리'},
+ assault:{scene:'refuge',mood:'dark',cast:'attacker',caption:'도움을 청했던 손이 돌아섰다'},exhausted:{scene:'refuge',mood:'fading',caption:'대답할 힘이 남지 않았다'},
+ schoolTaken:{scene:'school',mood:'dark',monster:'school',caption:'마지막 종 뒤에서 길어진 팔'},forestTaken:{scene:'forest',mood:'dark',monster:'forest',caption:'발자국 없는 목소리가 남긴 자리'},
+ marketTaken:{scene:'market',mood:'dark',monster:'market',caption:'움직이던 천막 안의 빈자리'},waterTaken:{scene:'drain',mood:'submerged',monster:'water',caption:'난간 아래로 사라진 번호'}
+};
+const ENDING_TEXT_REVISIONS={
+ schoolSolo:'한 사람용 녹색 문을 지나 마을의 경계를 벗어났다. 문은 뒤에서 닫혔다. 밖의 공기는 차가웠고, 안쪽의 방송은 더 이상 들리지 않았다.',
+ drainTogether:'물길과 전원을 확인한 뒤 마지막 사다리를 함께 올랐다. 먼저 올라간 사람이 뒤따르는 손을 잡았다. 물소리는 발아래에 남았다.',
+ trueSight:'사진과 반사에 비친 모습은 내 눈에 보이던 것과 달랐다. 상대를 바꾸려 하기 전에 내 시야를 확인했다. 바깥에서도 혼자 단정하지 않기로 했다.',
+ mimic:'재회한 존재의 기억과 흔적은 처음 만난 사람과 맞지 않았다. 그런데도 함께 나왔다. 문 밖에서 같은 질문을 하자, 곁의 존재는 또 다른 대답을 했다.',
+ changedCompanion:'변화가 진행된 동료와 함께 마을을 나왔다. 구조 거점에서는 먼저 상태를 확인하고 서로의 공간을 나눴다. 함께 나온 것이 회복을 뜻하지는 않았다.',
+ name:'방송에 내 이름을 말하고 열린 문을 따라갔다. 안쪽 스피커들이 같은 이름으로 대답한다. 돌아서자 들어온 문이 보이지 않는다.',
+ drowned:'차오르는 물을 보고도 낮은 통로로 더 내려갔다. 돌아섰을 때는 사다리 아래 단이 물에 잠겨 있었다. 손을 뻗어도 다음 단이 잡히지 않았다.',
+ assault:'공격이 시작됐는데도 익숙한 얼굴을 믿고 따라갔다. 그 손은 끝내 놓아주지 않았다. 가까이에 있던 목소리도 더는 내 말에 답하지 않는다.',
+ forestTaken:'발자국 없는 우비 쪽으로 다가갔다. 익숙한 말을 되풀이하던 목소리가 멎고, 가지처럼 갈라진 팔이 돌아갈 길을 닫았다.',
+ marketTaken:'시선을 돌린 틈에 손들이 다가왔다. 가로막힌 천막 틈을 밀어붙였지만 그 뒤에도 빈 길은 없었다. 그림자가 천 아래로 끌려갔다.'
+};
+for(const e of ENDS)if(ENDING_TEXT_REVISIONS[e.id])e.text=ENDING_TEXT_REVISIONS[e.id];
+
+// v5.11 — establish an audible channel before referring to a voice.
+ACTIONS.ward.find(a=>a.id==='firstMail').text='단말기 화면에 음성 수신 표시가 켜진다. 작은 스피커에서 잡음 뒤로 여자의 목소리가 나온다. 화면에는 같은 말이 수신 자막으로 남는다.';
+
+CLUES.operatorIdentity={title:'윤서의 직접 진술과 작업 명찰',kind:'증언과 관찰',text:'중계실에서 만난 여자가 윤서라고 소개했다. 작업 명찰에는 통신 작업반 윤서라고 적혀 있고, 회관 사진 속 헤드폰과 같은 장비를 쓰고 있다. 이후 안내를 모두 본인이 했다는 뜻은 아니다.'};
+
+// v5.12 full narrative audit: effective authored scenes and evidence.
+INTRO_SCENES.나래.dialogue=[
+ {who:'나',text:'잠깐만요. 누구세요? 왜 화면을 가리는 거예요?'},
+ {who:'나래',text:'나래야. 여기서 대피 방송을 했어. 잠깐만 화면을 내려 봐. 복도 소리, 아직 들리지?'},
+ {who:'나',text:'들려요. 그런데 방금 저 기계가 점검문을 알려 줘서 나왔어요.'},
+ {who:'나래',text:'알아. 나도 도움을 받았어. 그러다 붉은 불빛 쪽으로 가라는 말을 믿고 사람들을 보냈지.'},
+ {who:'나',text:'그쪽에 뭐가 있었는데요?'},
+ {who:'나래',text:'바위에 부서지는 파도 소리만 돌아왔어. 그 뒤로 연락이 끊겼고. 그래서 지금은 안내를 받으면 현장부터 확인해.'}
+];
+INTRO_SCENES.도윤.text='밧줄을 선반 오른쪽 기둥에 걸고 매듭을 조인다. 몸을 기대 선반을 들어 올리자 남자가 무릎으로 바닥을 밀어 빠져나온다. 매듭이 있는 짧은 끝을 잘라 건네자 다치지 않은 손으로 받는다.';
+INTRO_SCENES.도윤.dialogue=[{who:'나',text:'이제 나와도 돼요. 손은 움직일 수 있어요?'},{who:'도윤',text:'움직이면 아파요. 잠깐 눌러 두면… 괜찮을 줄 알았는데.'},{who:'나',text:'이름이 어떻게 되세요?'},{who:'도윤',text:'도윤이에요. 여기 설비를 점검했어요. 꺼내 주셔서 고맙습니다.'}];
+INTRO_SCENES.수호.dialogue=[{who:'나',text:'물 고마워요. 어떻게 불러 드리면 될까요?'},{who:'수호',text:'수호예요. 아까 지하에 물이 찼을 때 이 기계가 사다리 위치를 알려 줬어요.'},{who:'나',text:'그래서 계속 켜 두고 있는 거군요.'},{who:'수호',text:'끄면 다음 경고를 놓칠 것 같아서요. 지금도 새 안내가 오는지 자꾸 보게 돼요.'}];
+INTRO_SCENES.해원.dialogue=[{who:'해원',text:'다시 오셨네요. 언니도 같이 왔어요?'},{who:'나',text:'저를 아세요? 미안하지만 여기 왔던 일이 기억나지 않아요. 이름부터 알려 주실래요?'},{who:'해원',text:'해원이에요. 언니는 서진이고요. 저한테 여기서 기다리라고 메모를 남기고 가셨잖아요.'},{who:'나',text:'그 메모를 보여 줄 수 있어요?'},{who:'해원',text:'네. 이 작업 번호도 당신 손목표와 같아요. 그걸 보고 기다렸어요.'}];
+PEOPLE.나래.memory='처음 만났을 때 회색 천으로 화면을 가리고 복도 소리를 들어 보라고 했어.';
+PEOPLE.수호.memory='금속 컵을 건네고 나서 다시 기계를 두 손으로 잡았어요.';
+CLUES.photo.text='회관 작업반 사진에 나와 닮은 사람과 헤드폰을 쓴 여자가 있다. 귀퉁이에 작업 번호 0417, 뒷면에 중계실 점검반이라고 적혀 있다. 노란 우비를 입은 사람 아래에는 해원이라는 이름이 있고, 펼친 손바닥 위에 작은 조개가 보인다.';
+CLUES.confession.text='윤서는 처음 점검문을 안내한 사람이 자신이라고 밝혔다. 이후 자신의 목소리로 나온 안내 중에는 직접 하지 않은 말도 있다고 주장한다. 출력 조작 여부는 아직 원본 녹음과 대조해야 한다.';
+PEOPLE.해원.device='배터리가 꺼진 단말기를 지니고 있으며, 남겨 둔 메모를 보고 기다렸다';
+PEOPLE.서진.secret='해원에게 약을 가져다 달라고 부탁했고, 혼자 보낸 일을 후회한다.';
+function narrativeAction(id,patch){for(const list of Object.values(ACTIONS)){const a=list.find(x=>x.id===id);if(a)Object.assign(a,patch);}}
+for(const list of Object.values(ACTIONS))for(const a of list)if(a.npc){a.text=INTRO_SCENES[a.npc].text;a.dialogue=INTRO_SCENES[a.npc].dialogue;}
+narrativeAction('naraPast',{needHere:'나래',text:'나래가 당시 적어 둔 수신 시각을 보여 준다.',dialogue:[{who:'나',text:'그때 들은 안내를 그대로 적어 둔 거예요?'},{who:'나래',text:'응. 붉은 불빛이 구조선이라는 말이었어. 부두 표를 읽기 전에 방송부터 해 버렸지.'},{who:'나',text:'회관 보고서에 남은 시각과 비교해 볼게요.'}]});
+narrativeAction('shell',{needHere:'해원',text:'해원이 약 봉투에서 작은 조개를 꺼내 손바닥에 올린다. 사진에서처럼 손가락 한 마디쯤 되는 크기다.',dialogue:[{who:'나',text:'회관 사진에서도 작은 조개를 들고 있었어요. 지금 가진 게 그 조개예요?'},{who:'해원',text:'네. 언니에게 주려고 챙겼어요. 약 봉투에 넣어 뒀고요.'},{who:'나',text:'조개만으로 판단할 수는 없지만, 사진 속 물건과 이어지네요. 여기 오기 전 일도 들려주세요.'},{who:'해원',text:'학교에서 약을 받아 왔어요. 여기 다친 분에게 붕대를 갈아 주고, 당신이 남긴 메모대로 기다렸어요.'}]});
+narrativeAction('operatorProof',{needHere:'윤서',text:'원본 녹음의 시각을 윤서 앞에서 다시 확인한다.',dialogue:[{who:'나',text:'처음에는 손목 번호를 확인하고 점검문으로 나오라고 했죠?'},{who:'윤서',text:'네. 침대 뒤 작은 걸쇠를 밀라고 했어요. 그 안내는 제가 보냈어요.'},{who:'나',text:'그 전에는 출력을 올렸고요. 여기 중단 요청 뒤에도 송신이 이어져요.'},{who:'윤서',text:'구조 신호를 멀리 보내려 했어요. 다른 기기에서 같은 말이 나오는 걸 알고도 바로 끊지 못했어요.'}]});
+narrativeAction('rest',{text:'불 꺼진 가게 벽에 등을 기대고 단말기를 내려놓는다. 잠깐 눈을 감았다 뜨자 빗물이 처마를 두드리는 소리가 또렷해진다.'});
+narrativeAction('report',{text:'회관 책상의 서랍을 끝까지 당기자 안쪽에 두 번째 잠금판이 보인다. 이전 접속 기록에 남은 번호로 잠금을 풀어 보고서를 꺼낸다. 목소리 학습 장치의 접속 시간과 신체 변화가 나란히 적혀 있다.'});
+narrativeAction('forestMemo',{text:'관리소 책상의 메모에는 0417이라는 작업 번호와 약 전달 요청이 있다. 마지막 줄에는 여기서 기다려 달라는 부탁이 적혀 있다. 이 메모만으로 중계실에서 무슨 결정을 했는지까지는 알 수 없다.'});
+narrativeAction('railFix',{needItem:'rail',text:'점검차 잠금장치를 열고 브레이크 연결핀을 끼운다. 차를 조금 밀었다가 제동을 걸자 바퀴가 멎는다. 종이 배차표의 정비소 방향과 철로가 이어진 방향을 다시 확인한다.'});
+narrativeAction('stay',{text:'유선 수화기를 손 닿는 곳으로 옮기고 빈 의자에 앉는다. 호출이 들어오면 수신 시각과 마지막 위치부터 적기로 한다.'});
+
+
+// v5.13 — spoken dialogue pass. Keep rules in the notebook, not every character's mouth.
+const spokenScene=(n,text,pairs)=>{INTRO_SCENES[n]={text,dialogue:pairs.map(([who,text])=>({who,text}))};};
+spokenScene('나래','점검문 밖에서 여자가 네 손목을 잡는다. 회색 천이 화면 위로 덮인다. 여자는 방문 쪽에 귀를 기울인 채 손가락을 입에 댄다.',[
+ ['나','뭐 하는 거예요?'],['나래','쉿. 아직 저기 있어.'],['나','누구세요?'],['나래','나래. 여기 사람이야. 너도 저 기계 듣고 나온 거지?'],['나','저 문으로 나가라고 해서요.'],['나래','그래. 이번엔 맞았네.'],['나','이번엔요?'],['나래','…일단 목소리 낮춰. 저 발소리 멀어지면 얘기하자.']]);
+spokenScene('서진','정류장 앞 여자가 네 뒤를 살핀다. 누군가 더 오기를 기다리는 듯 한 발 옆으로 비켜선다.',[
+ ['서진','혼자 오셨어요? 뒤에 다른 사람은요?'],['나','못 봤어요. 누굴 기다리세요?'],['서진','제 동생요. 노란 우비 입은 여자… 혹시 못 보셨어요?'],['나','미안해요. 이름이 뭐예요?'],['서진','해원이에요. 저는 서진이고요.'],['나','마지막으로 어디서 봤어요?'],['서진','학교 체육관 앞이요. 약 좀 갖다주고 온다더니… 기계에는 나갔다고 떠요. 나갔으면 저한테 연락을 했겠죠.']]);
+spokenScene('도윤','밧줄을 선반 오른쪽 기둥에 걸고 매듭을 조인다. 몸을 기대 선반을 들어 올리자 남자가 바닥을 밀며 빠져나온다. 그는 밧줄의 짧은 끝을 붙든 채 숨을 몰아쉰다.',[
+ ['나','나왔어요. 이제 손 놓아도 돼요.'],['도윤','잠깐… 숨 좀 돌릴게요.'],['나','손, 피 나는데요.'],['도윤','끼었어요. 제가 빼 보려다가.'],['나','일어설 수 있겠어요?'],['도윤','네. 다리는 괜찮아요. 아, 도윤입니다. 정말… 고맙습니다.']]);
+spokenScene('수호','남자가 손잡이 있는 낡은 금속 컵을 내민다. 네가 컵을 받자 빈손을 곧바로 단말기에 얹는다.',[
+ ['수호','드세요. 깨끗한 물이에요.'],['나','고마워요. 여기 혼자 계셨어요?'],['수호','네. 수호라고 해요. 밖에 물은 좀 빠졌어요?'],['나','여기 오는 길은 괜찮았어요.'],['수호','아까는 허리까지 찼거든요. 저 기계가 사다리를 안 알려 줬으면…'],['나','그 뒤로 계속 듣고 계신 거예요?'],['수호','또 놓칠까 봐요. 저만 못 듣고 있으면 어떡해요.']]);
+spokenScene('해원','노란 우비를 입은 여자가 의자에서 벌떡 일어난다. 너를 보더니 문 밖으로 고개를 내민다.',[
+ ['해원','오셨네요! 언니는요?'],['나','잠깐만요. 저를 알아요?'],['해원','…왜 그러세요? 아까 여기 계셨잖아요.'],['나','머리를 다쳤어요. 잘 기억이 안 나요. 이름이 뭐예요?'],['해원','해원이요. 서진 언니 동생. 저보고 여기 있으라고 하셨는데.'],['나','제가요?'],['해원','네. 메모도 써 주셨어요. 여기, 이 번호… 손목에 있는 거랑 같잖아요.']]);
+spokenScene('윤서','칸막이 뒤에서 여자가 나온다. 헤드폰 선이 팔꿈치에 걸리자 급히 풀어 낸다. 가슴의 작업 명찰에는 통신 작업반 윤서라고 적혀 있다.',[
+ ['나','그 목소리…'],['윤서','살아 계셨네요. 점검문으로 나오신 거죠?'],['나','문 잠그라고 한 사람이 당신이에요?'],['윤서','네. 윤서예요. 통신실에 있어요. 계속 여기 있었고요.'],['나','그럼 다른 안내도 전부 당신이…'],['윤서','아뇨. 그건 아니에요. 제 목소리가 들렸어도… 제가 한 말이 아닌 게 있어요.']]);
+for(const list of Object.values(ACTIONS))for(const a of list)if(a.npc){a.text=INTRO_SCENES[a.npc].text;a.dialogue=INTRO_SCENES[a.npc].dialogue;}
+const exchange=(id,pairs)=>narrativeAction(id,{dialogue:pairs.map(([who,text])=>({who,text}))});
+exchange('naraSymptoms',[
+ ['나','손목, 다친 거예요?'],['나래','이거? 상처 아니야. 문질러도 안 지워져.'],['나','언제부터요?'],['나래','기계 붙들고 밤샌 다음부터. 다들 침식이니 뭐니 하던데.'],['나','약은 써 봤어요?'],['나래','소용없었어. 꺼 두고 쉬니까 좀 옅어지긴 해. 필터도 조금은 낫고.']]);
+exchange('naraPast',[
+ ['나','아까, 이번엔 맞았다고 했죠. 전에는 틀렸어요?'],['나래','붉은 불빛 쪽으로 가라더라. 구조선이라고. 내가 그걸 방송했고.'],['나','사람들이 갔어요?'],['나래','…응. 무전이 끊기기 전에 파도 소리가 들렸어. 배 부서지는 소리도.'],['나','그래서 기계를 가린 거군요.'],['나래','그렇다고 네 것까지 뺏을 순 없지. 나올 문은 제대로 알려 줬으니까.']]);
+exchange('seojinTrail',[
+ ['나','해원 씨가 어디에 약을 가져간다고 했어요?'],['서진','다친 사람이 있다더라고요. 제가 약을 챙겨 줬어요.'],['나','어디인지는 못 들었고요?'],['서진','네. 금방 온다길래… 우비도 얇은 건데, 이 비에.']]);
+exchange('seojinDevice',[
+ ['나','그 기계, 계속 켜 두셨어요?'],['서진','해원이 연락할까 봐요.'],['나','손목은 괜찮아요?'],['서진','검게 됐어요. 밤에는 사람 얼굴도 좀 이상하고.'],['나','잠깐 쉬는 게…'],['서진','알아요. 꺼 두면 좀 낫더라고요. 그런데 그 사이에 연락이 오면요?']]);
+exchange('doyunWork',[
+ ['나','설비는 잘 아시는 것 같던데, 여기서 일해요?'],['도윤','점검하러 다녀요. 저 선반도 받침만 끼우면 될 줄 알았죠.'],['나','혼자 들다가 그렇게 된 거예요?'],['도윤','기계에서 먼저 전원 넣으라길래요. 진동이 오더니 그냥… 앞으로 쏟아졌어요.']]);
+exchange('suhoTrust',[
+ ['나','계속 무슨 말이 와요?'],['수호','별말 없어요. 그런데 끄려고만 하면 경고가 떠요.'],['나','방금 온 거예요?'],['수호','…모르겠어요. 아까 것도 자꾸 다시 떠서.'],['나','시간부터 봐요. 저 여기 있을게요.'],['수호','그럼 잠깐만요. 어디 가지 마세요.']]);
+exchange('haewonMemory',[
+ ['나','제가 여기서 뭘 하고 있었어요?'],['해원','전선 보셨어요. 건드리지 말라고 하시고, 사람 더 있나 찾으러 가셨고요.'],['나','중계실로 간다고는 안 했어요?'],['해원','거기로 돌아가야 한다고 했어요. 그런데 나중엔 기계에서 따라오라고…'],['나','그래서 갔어요?'],['해원','아뇨. 메모엔 기다리라고 써 있었잖아요. 그래서 문 잠그고 있었어요.']]);
+exchange('operatorReason',[
+ ['나','당신은 왜 아직 여기 있어요?'],['윤서','호출이 와요. 한동안 잠잠하다가도 다시 와서.'],['나','다른 사람한테 맡기고 나가면 안 돼요?'],['윤서','맡길 사람이 없어요. 방금 끊긴 게… 나가서 끊긴 건지도 모르겠고.']]);
+exchange('shell',[
+ ['나','사진에서 그 조개 들고 있던데, 아직 있네요.'],['해원','언니 주려고요. 주머니에 넣으면 깨질까 봐 봉투에 뒀어요.'],['나','학교에서부터 갖고 온 거예요?'],['해원','네. 약도 학교에서 받아 왔어요. 언니가 챙겨 줬어요.'],['나','그 뒤로 여기 있었고요?'],['해원','여기 다친 분 붕대를 갈아 드렸어요. 그러고 기다렸고요.']]);
+exchange('operatorProof',[
+ ['나','처음에 침대 뒤로 나오라고 했죠. 그건 당신이었고요?'],['윤서','네. 문 밑으로 뭐가 들어온다고 하셔서요.'],['나','이 녹음도 들어 봐요. 제가 끄라고 했는데 왜 계속 켜 뒀어요?'],['윤서','아직 못 나온 사람이 있었어요. 신호가 멀리 가면 찾을 수 있을 줄 알았어요.'],['나','다른 기계에서도 같은 말이 나왔잖아요.'],['윤서','알아요. 그때 멈췄어야 했어요. 조금만 더 기다리면 될 줄 알았어요.']]);
+exchange('suhoQuiet',[['나','제가 옆에 있을게요. 잠깐만 꺼 봐요.']]);
+exchange('suhoListen',[['나','알겠어요. 대신 무슨 말이 오면 저도 좀 보여 줘요.']]);
+exchange('shareTrail',[['나','여기 보세요. 학교 봉투인데, 관리소라고 적혀 있어요.']]);
+exchange('holdTrail',[['나','조금만 더 알아보고 올게요. 지금은 저도 잘 몰라요.']]);
+exchange('keepTestimony',[['나','지금 한 말, 적어 둘게요. 출력을 올린 이유도 같이요.']]);
+exchange('deferTestimony',[['나','일단 사람부터 찾아요. 이 얘기는 나가서 마저 하고요.']]);
+PEOPLE.나래.memory='복도에 아직 뭐가 있어서 조용히 하라고 했잖아. 네 화면은 이 천으로 덮었고.';
+PEOPLE.수호.memory='물을 건네고 나서도 물이 빠졌냐고 물었죠. 그때는 또 차오를까 봐서요.';
+PEOPLE.서진.memory='학교에서 동생을 마지막으로 봤다고 했어요. 노란 우비 입었다고요.';
+
+narrativeAction('naraPast',{cycle:undefined});
