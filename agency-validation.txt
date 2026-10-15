@@ -1,0 +1,10 @@
+PASS no answer oracle, percentages, compare button or reading reward; evidence remains accessible
+PASS topic aliases cannot resend; question disappears in terminal and evidence view
+PASS answered topic memory survives chat pruning and save
+PASS monster ask action sends once, vanishes across views, and a changed stage opens a different follow-up
+PASS true and false advice use identical semantic emphasis; unsafe HTML remains escaped
+PASS raw possessions and movements remain; no verdict badges or already-used observation buttons
+PASS rescue team displays observations rather than a diagnostic count or verdict
+PASS legacy verdicts are neutralized without deleting the underlying record
+PASS button-only terminal keeps free-text form hidden
+PASS earned ending remains reachable by explicit record submission without hijacking ordinary departures

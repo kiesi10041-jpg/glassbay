@@ -1,0 +1,7 @@
+PASS 33 supplied ending images resolve without duplicate portrait or monster overlays
+PASS 33 distinct ending mappings retain original filenames in manifest
+PASS repeated self introduction and consecutive identical speech are suppressed
+PASS previously met NPC cannot replay the introductory action
+PASS handheld terminology is consistent while machinery descriptions remain distinct
+PASS beacon comparison connects the actual plate to the observed light
+ALL V5.15 CHECKS PASSED

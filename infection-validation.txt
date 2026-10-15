@@ -1,0 +1,7 @@
+PASS actual mimic requires explicit warning and confirmation; bypassing pending confirmation fails; consequence saved
+PASS advanced companion erosion and independent warning cause outbreak even with clouded player perception
+PASS cancel then quarantine contains risk without world infection
+PASS normal human transfer is safe and completed actions disappear
+PASS sync threshold and pending confirmation survive save serialization
+PASS four infection bands reverse with recovery; reduction and endings clear effects; renders do not change RNG or turns
+PASS body panel does not reveal concealed companion erosion through a status label

@@ -101,3 +101,19 @@ body.large .conversation .dialogue p,body.large .prose p,body.large .actions but
 .chapterThought{font-size:17px;line-height:1.9;color:#c7ccbd;margin:1.3em 0}
 .chapterNote{margin-top:22px;color:#adb9ac;font-size:14px}
 @media(max-width:600px){.chapterSpeech p{font-size:17px}.novelChapter .prose p{line-height:1.9}}
+.identityCompare{margin:22px 0;border-top:1px solid #61796e;padding-top:16px}
+.identityRow{background:#192323;padding:16px;margin:14px 0;border:1px solid #4e625b;border-radius:8px}
+.identityRow h4{margin:0 0 12px;font-size:17px}.identityRow dl{margin:0}.identityRow dt{font-size:13px;color:#b9c9bc;margin:12px 0 6px}.identityRow dd{margin:0;line-height:1.8;overflow-wrap:anywhere}.identityRow p{font-size:14px;line-height:1.8}.identityRow small{color:#a4b3a8}.hasDiscrepancy{border-color:#bf9867}.identityNoise{text-decoration:underline wavy #d6a66e;text-underline-offset:5px;background:repeating-linear-gradient(0deg,transparent 0 4px,#b8bfad12 4px 5px);color:#f2d4a3!important}.identityFinding{font-weight:bold}.identityCaution{padding:12px;border-left:3px solid #c5aa71;line-height:1.8}
+
+/* Peripheral infection preserves the central reading and input area. */
+#infectionVeil{position:fixed;inset:0;z-index:145;pointer-events:none;overflow:hidden;opacity:0;transition:opacity 1.8s;background:radial-gradient(ellipse at center,transparent 48%,#071e2088 82%,#071317dd 100%)}
+#infectionVeil[hidden]{display:none}#infectionVeil svg{width:100%;height:100%;fill:none;stroke:#082b2c;stroke-width:.65;filter:drop-shadow(0 0 3px #64b1a8);opacity:.45}
+#infectionVeil i{position:absolute;inset:0;border:1px solid #68a79b55;box-shadow:inset 0 0 55px #0b3335;background:repeating-linear-gradient(0deg,transparent 0 7px,#5d9a8a09 8px 9px);mask-image:radial-gradient(ellipse,transparent 48%,black 95%)}
+body[data-infection="1"] #infectionVeil{opacity:.18}body[data-infection="2"] #infectionVeil{opacity:.40}body[data-infection="3"] #infectionVeil{opacity:.68}body[data-infection="4"] #infectionVeil{opacity:.92;background:radial-gradient(ellipse,transparent 42%,#10292c99 72%,#0b0c16ee 100%)}
+body[data-infection="3"] #infectionVeil svg,body[data-infection="4"] #infectionVeil svg{stroke-width:1.05;animation:infectionBreath 9s ease-in-out infinite alternate}body[data-infection="4"] #infectionVeil i{box-shadow:inset 0 0 105px #113d3c;animation:infectionDrift 14s linear infinite alternate}
+@keyframes infectionBreath{from{opacity:.42}to{opacity:.76}}@keyframes infectionDrift{from{transform:translateY(-3px)}to{transform:translateY(3px)}}
+body.reduce #infectionVeil,body.endingScene #infectionVeil{display:none}#panel,#intro,#loadNotice{isolation:isolate} .mood-outbreak .endingAtmosphere{background:linear-gradient(0deg,#1d090e66,transparent 65%)}
+@media(prefers-reduced-motion:reduce){#infectionVeil,#infectionVeil *{animation:none!important;transition:none!important}}
+
+/* v5.18: two readable meters, neutral emphasis for claims and physical records alike. */
+#quickStatus{grid-template-columns:repeat(2,minmax(0,1fr));max-width:470px}.clueEmphasis{font-weight:750;color:#f1d2a0;text-decoration:underline;text-decoration-color:#a58b6155;text-underline-offset:3px}.sourceExcerpt{padding:12px;margin-top:8px;border-left:2px solid #777a73;background:#18222b}.sourceExcerpt summary{cursor:pointer;color:#d9d4c4;line-height:1.7}.sourceExcerpt p{line-height:1.9;white-space:pre-line}.observationStatic{background:repeating-linear-gradient(0deg,transparent 0 5px,#b8bfad10 5px 6px)}#askForm{display:none!important}#echoSuggestions{max-height:34vh;overflow-y:auto;padding-bottom:max(12px,env(safe-area-inset-bottom))}.sourceExcerpt .clueEmphasis,.identityRow .clueEmphasis{color:#f1d2a0}

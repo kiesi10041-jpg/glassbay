@@ -36,7 +36,7 @@ PASS emergency stabilisation consumes supply and retains untreated injuries
 PASS recovered player can face a new synchronization crisis
 PASS exit investigation allows separation before final ending
 PASS action dialogue persists without duplicate records on render
-PASS separate visible metrics and saved per-reply probability
+PASS two visible meters; internal probability never appears in replies
 PASS Nara responds to current action and skips unrelated filler
 PASS copied memories cannot solve identity alone; independent discrepancies combine
 PASS injured human memory uncertainty does not imply impersonation
@@ -56,16 +56,16 @@ PASS ECHO danger question uses current creature clues and leaves confrontation u
 PASS first market creature appears reliably; revisit cooldown avoids repeated ambush
 PASS new dialogue animates once; repeated description is optional and result remains visible
 PASS mobile reader scroll independent of visible stage (mock DOM)
-PASS new monster assets and 32 unique ending IDs
+PASS new monster assets and 33 unique ending IDs
 PASS ECHO questions sit by the input and hide with the phone
 PASS reload preserves caught phase and survival cost
 PASS prior 28-ending completion keeps unlocked truth after expansion
 PASS attacking mimic and synchronized player have visible foreground mutation images
 PASS variable cost/probability ranges draw once per answer and do not reroll in menus
-PASS repeat-question penalty is shown before sending
+PASS no repeat penalty remains for unavailable repeat actions
 PASS probability range never promises 0 or 100 percent
-PASS comparison shows source/claim/result, records evidence and prevents duplicate rewards
-PASS previously verified save messages regain a visible comparison result
+PASS raw source and claim readable without automatic judgment or reward
+PASS legacy verified replies show the original source without a verdict
 PASS first question receives a location answer; erosion lesson and changing personal references persist
 PASS discrepancy badge depends on observed facts, not hidden identity
 PASS monsters move on adjacent habitat paths; menu inspection does not move or reroll them
@@ -99,7 +99,7 @@ PASS testimony decisions persist into journal, save and ending recollection with
 PASS choice decoration follows actual restriction and distinct monster types
 PASS unlock/take transitions only on changed action state, never menu redraw or location change
 PASS switched-off companion device stays offline during player terminal questions
-PASS all 32 endings have valid scene assets and render ending artwork
+PASS all 33 endings have valid scene assets and render ending artwork
 PASS ending gallery preserves actual companion portraits and saved context
 PASS gallery hides unseen artwork and legacy records do not invent companions
 PASS roaming monster ending uses actual location; ending prose avoids invented sacrifice or injury

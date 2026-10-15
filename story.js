@@ -49,3 +49,23 @@ const chapterNaraResponse=npcResponse;
 npcResponse=function(n,a){const c=state.npc[n];if(n!=='나래'||c.fake||c.changed)return chapterNaraResponse(n,a);const mode=state.naraReading,stance=state.decisions?.naraOpening?.stance;if(a.id==='tide')return mode==='testimony'||mode==='responsibility'?'…여기 써 있었네. 나한텐 안 보였던 게 아니라, 안 읽었던 거야.':'암초 경고… 저길로 보냈어.';if(a.id==='report')return '목소리를 배웠다고… 그럼 그때 대답한 건 누구였지.';if(a.id==='lastDecision')return '네가 기다려 달랬어도, 내 방송까지 네가 한 건 아니야. 그건 내가 말할게.';if(stance==='naraDistance'&&a.id==='photo')return '사진 보고 있어? …난 문 쪽 볼게.';if(stance==='naraKeep'&&a.id==='powerFinish')return '기계에선 아직 뭐래? 여기는 켜졌어.';if(stance==='naraHear'&&a.id==='rest')return '아까도 이렇게 조용했으면 좋았을 텐데.';return chapterNaraResponse(n,a);};
 const chapterLeaving=move;
 move=function(dest){const from=state.loc,firstExit=from==='ward'&&!state.visited.includes(dest);const ok=chapterLeaving(dest);if(ok&&firstExit&&!state.event&&!state.ending){state.output.text=(dest==='square'?'계단을 내려갈수록 비 냄새가 짙어진다. 옆문을 밀자 차가운 바람이 얼굴을 스친다. 밖에 나와서야 굽히고 있던 허리가 펴진다.\n\n광장 건너편 스피커에서 대피 방송이 반복된다. 정류장 앞에 선 여자가 문 열리는 소리에 고개를 든다. 네 얼굴을 본 뒤, 네 뒤쪽을 한 번 더 살핀다.':'계단 아래 작은 복도에 약국 간판이 보인다. 문은 반쯤 열려 있고, 안쪽 조제대에는 젖은 약 봉투가 흩어져 있다.\n\n손목의 종이띠를 내려다보다가 걸음을 멈춘다. 서랍 손잡이에 같은 숫자가 붙어 있다. 0417.');render();save();}return ok;};
+// v5.15 — distinguish handheld terminal from the infrastructure.
+function terminalWords(text){return String(text).replace(/(이|그|저|네|내|자기) 기계/g,'$1 단말기').replace(/기계(에서|에게|를|가|는|의|도|에|와|만|부터|하고)/g,'단말기$1');}
+function reviseWords(value){if(Array.isArray(value)){for(let i=0;i<value.length;i++)if(typeof value[i]==='string')value[i]=terminalWords(value[i]);else if(value[i]&&typeof value[i]==='object')reviseWords(value[i]);}else if(value&&typeof value==='object')for(const key of Object.keys(value)){if(typeof value[key]==='string')value[key]=terminalWords(value[key]);else if(value[key]&&typeof value[key]==='object')reviseWords(value[key]);}}
+for(const data of [WORLD,PEOPLE,CLUES,ACTIONS,INTRO_SCENES,GUIDANCE,ENDS])reviseWords(data);
+const clearLine=line;
+line=function(who,text,kind='speech'){text=terminalWords(text);const lines=state.output?.lines||[];if(lines.at(-1)?.who===who&&lines.at(-1)?.text===text)return;const introduction=PEOPLE[who]&&new RegExp('^(저는 )?'+who+'(이에요|예요|입니다|라고 해요|야|[.])([. ]*)');if(introduction&&introduction.test(text)){const already=state.met.includes(who)||lines.some(l=>l.who===who&&introduction.test(l.text));if(already){text=text.replace(introduction,'').trim();if(!text)return;}}return clearLine(who,text,kind);};
+const clearOutput=output;output=function(text=''){return clearOutput(terminalWords(text));};
+const clearDescription=placeDescription;placeDescription=function(){return terminalWords(clearDescription());};
+const clearObjective=objective;objective=function(){return terminalWords(clearObjective());};
+const clearNPCResponse=npcResponse;npcResponse=function(n,a){const text=clearNPCResponse(n,a);return text?terminalWords(text):text;};
+const clearPlayerSpeech=playerSpeech;playerSpeech=function(a){const text=clearPlayerSpeech(a);return text?terminalWords(text):text;};
+// Do not turn a routine inspection into an unprompted identity interrogation.
+const situatedInspection=inspectNPC;
+inspectNPC=function(n,mode='memory'){const c=state.npc[n];if(!c||!state.met.includes(n))return;const priorTurn=state.turn;const result=situatedInspection(n,mode);if(state.turn===priorTurn)return result;if(!state.output||!c.observations?.[mode])return;if(mode==='memory'&&!c.lastReunion&&!c.fake){state.output.text=state.output.text.replace('관찰 결과: 확인한 특징이 이어짐 · 다른 징후도 함께 확인할 수 있다.','이야기를 나눴다. 아직 헤어진 적이 없으니 재회 전후를 비교한 것은 아니다.');}save();return result;};
+
+const noReintroductionActions=actions;actions=function(){return noReintroductionActions().filter(a=>!a.npc||!state.met.includes(a.npc));};
+narrativeAction('beacon',{label:'등대 점검판과 흰 불빛의 간격을 대조한다',text:'렌즈 옆 점검판에는 짧게 세 번, 길게 한 번이라고 적혀 있다. 창밖의 흰 불빛을 세어 본다. 세 번 뒤 긴 불빛이 남고, 다시 어두워진다.'});
+CLUES.beacon.text='등대 점검판의 외항 신호는 짧게 세 번, 길게 한 번이다. 바다에서 실제로 보이는 흰 불빛도 같은 간격으로 반복된다.';
+const preciseInspection=inspectNPC;
+inspectNPC=function(n,mode='memory'){const t=state.turn,r=preciseInspection(n,mode);if(state.turn!==t&&mode==='object'&&state.npc[n]?.fake){const o=state.npc[n].observations.object;o.text='처음: '+(state.npc[n].baseline?.object||'세부 기록 없음')+'\n지금: 버렸다고 말하며 물건을 보여 주지 않는다. 같은 물건인지 확인하지 못했다.';state.output.text=o.text+'\n\n설명은 달라졌다. 분실했을 가능성도 남아 있다.';const record=state.claims.at(-1);if(record?.title===n+' · 지닌 물건')record.text=o.text;render();save();}return r;};
