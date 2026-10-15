@@ -92,4 +92,11 @@ PASS four creature survivals retain observed evidence without menu duplication
 PASS companion aftermath and saved encounter history; ending count unchanged
 PASS vocal mute, cooldown, priority and settings container (mock audio)
 PASS three bundled synthesized vocal WAV assets exist
+PASS voluntary companion shutdown changes future erosion and consumes the shared decision once
+PASS companion can refuse shutdown; continued contact increases synchronization
+PASS sharing or withholding evidence changes trust without asserting an unknown identity
+PASS testimony decisions persist into journal, save and ending recollection without adding endings
+PASS choice decoration follows actual restriction and distinct monster types
+PASS unlock/take transitions only on changed action state, never menu redraw or location change
+PASS switched-off companion device stays offline during player terminal questions
 ALL CHECKS PASSED
